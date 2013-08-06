@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  database: YOUR_DATABASE_NAME_HERE # e.g. lorious_development
+  pool: 5
+  timeout: 5000
+  username: YOUR_USERNAME_HERE # if database permissions require one
+  password: YOUR_PASSWORD_HERE # if database permissions require one
+
+test:
+  adapter: postgresql
+  database: YOUR_DATABASE_NAME_HERE # e.g. lorious_test
+  pool: 5
+  timeout: 5000
+  username: YOUR_USERNAME_HERE # if database permissions require one
+  password: YOUR_PASSWORD_HERE # if database permissions require one
+
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000

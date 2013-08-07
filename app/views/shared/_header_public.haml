@@ -1,0 +1,43 @@
+%nav
+  .row
+    .col-12
+      .navbar.navbar-fixed-top
+        %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "#"}
+          =image_tag "https://s3.amazonaws.com/lorious/layout/lorious_2color.svg", width: "110px"
+        .nav-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav.pull-right
+            %li
+              %a{:href => "#"} Home
+            %li
+              %a{:href => "#"} How it works
+            %li
+              %a{:href => "#"} Get started
+
+:javascript
+
+  $(function(){
+    $('.navbar').data('size','big');
+  });
+
+  $(window).scroll(function(){
+      var $nav = $('.navbar');
+      if ($('body').scrollTop() > 0) {
+          if ($nav.data('size') == 'big') {
+              $nav.data('size','small').stop().animate({
+                  height:'40px',
+                  paddingTop: '0px'
+              }, 600);
+          }
+      } else {
+          if ($nav.data('size') == 'small') {
+              $nav.data('size','big').stop().animate({
+                  height:'60px',
+                  paddingTop: '10px'
+              }, 600);
+          }  
+      }
+  });

@@ -1,11 +1,11 @@
 en:
   user:
-  	signin:
-  		success: "successfully signed in"
-  		failure: "there was an error signing in with the email address %w{email_address}"
-  	signout:
-  		success: "successfully signed out"
-  	authentication:
-  		success: "successfully linked account"
-  	registration:
-  		success: "successfully registered"
+    signin:
+      success: "successfully signed in"
+      failure: "there was an error signing in with the email address %w{email_address}"
+    signout:
+      success: "successfully signed out"
+    authentication:
+      success: "successfully linked account"
+    registration:
+      success: "successfully registered"

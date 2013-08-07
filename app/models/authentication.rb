@@ -16,6 +16,7 @@ class Authentication < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
+		self.provider.titleize
 	end
 
 	# def to_param

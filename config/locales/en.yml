@@ -9,3 +9,7 @@ en:
       success: "successfully linked account"
     registration:
       success: "successfully registered"
+    payment:
+      card_added:
+        success: "successfully added card to account"
+        failure: "failed to add card to account"

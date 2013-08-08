@@ -22,6 +22,11 @@ ruby '2.0.0'
 	gem 'turbolinks'
 	gem 'jquery-turbolinks'
 
+# ASSETS - DESIGN
+	gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails',
+                              :branch => '3.0.0'
+
 # USER MANAGEMENT
 	gem 'omniauth-google-oauth2'
 

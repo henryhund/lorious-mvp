@@ -3,7 +3,7 @@
     - if current_user.has_credit_card?
       %p= "#{current_user.card_type.titleize} **** **** **** #{current_user.last_4_digits}"
       = link_to "Edit Payment Information", "#", class: "edit-credit-card"
-      = link_to "Purchase Credits", purchase_credits_url, class: "purchase-credits"
+      = link_to "Purchase Credits", new_credit_purchase_url, class: "purchase-credits"
     - else
       = link_to "Add Credit Card", new_card_url, class: "add-credit-card"
 

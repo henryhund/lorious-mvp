@@ -12,7 +12,10 @@ class UsersController < ApplicationController
 		else
 			flash[:error] = t('user.payment.add_card.failure')
 		end
-			redirect_to user_profile_url(current_user)
+		redirect_to account_url
+	end
+
+	def purchase_credits
 	end
 
 end

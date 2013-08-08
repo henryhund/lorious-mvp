@@ -21,3 +21,8 @@
 
 .navbar-brand
   padding-top: 0
+
+// If screen is narrow, override JS for setting navbar height (otherwise will not allow responsive dropdown)
+@media (max-width: 767px)
+  .navbar
+    height: auto !important

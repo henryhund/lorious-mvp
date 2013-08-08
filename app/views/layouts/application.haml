@@ -7,11 +7,16 @@
 
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
-    .wrapper
-      .container
-        = render "shared/header_public"
+    = yield(:head)
+
+  -if controller.action_name == "homepage"
+    %body{"data-offset" => "60", "data-spy" => "scroll", "data-target" => "#navbar"}
+  -else
+    %body
+  .wrapper
+    .container
+      .main{class: "#{controller.controller_name}-#{controller.action_name}"}
+        = render "shared/header_public" # to be switched out depending on whether logged in or not
         = render "shared/notifications"
-        .main{class: "#{controller.controller_name}-#{controller.action_name}"}
-          = yield
-      = render "shared/footer_public"
+        = content_for?(:content) ? yield(:content) : yield
+    = render "shared/footer_public"

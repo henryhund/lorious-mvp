@@ -19,9 +19,10 @@
 	* run the command: `rake db:migrate` to ensure any pending database migrations are ran
 
 	## ENVIRONMENT VARIABLES THAT NEED TO BE SET
-		- LORIOUS_GOOGLE_KEY
+		- LORIOUS_GOOGLE_ID
 		- LORIOUS_GOOGLE_SECRET
-		- LORIOUS_GOOGLE_APP_ID
+		- LORIOUS_STRIPE_PUBLIC_KEY
+		- LORIOUS_STRIPE_SECRET_KEY
 
 # RUNNING TETS
 

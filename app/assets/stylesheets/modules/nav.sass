@@ -1,0 +1,28 @@
+.navbar
+  background-color: #32494c
+  color: #ffffff
+  font-size: 18px
+  margin-bottom: 10px
+  position: fixed
+  padding-top: 10px
+
+  ul
+    li
+      font-family: 'Gotham A', 'Gotham B', 'Roboto Condensed'
+      font-weight: 700
+      font-size: 14px
+      display: inline
+      a
+        padding-top: 11px
+        color: #ffffff
+      a:hover
+        text-decoration: none
+        color: #fafafa
+
+.navbar-brand
+  padding-top: 0
+
+// If screen is narrow, override JS for setting navbar height (otherwise will not allow responsive dropdown)
+@media (max-width: 767px)
+  .navbar
+    height: auto !important

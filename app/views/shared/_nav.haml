@@ -1,0 +1,63 @@
+= javascript_include_tag "nav_scripts"
+
+%nav
+  #navbar.navbar.navbar-fixed-top
+    %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => "#"}
+      =image_tag "https://s3.amazonaws.com/lorious/layout/lorious_2color.svg", width: "110px"
+    .nav-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav
+        %li
+          =link_to "Search for Experts", "#"
+
+      %ul.nav.navbar-nav.pull-right
+        %li
+          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+            %span.label.label-default
+              %i.icon-envelope.icon-white
+              (#)
+        %li
+          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+            %span.label.label-danger
+              %i.icon-calendar
+              (#)
+        %li
+          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+            %span.label.label-info
+              %i.icon-asterisk
+              (#)
+      %ul.nav.navbar-nav.pull-right
+        -if current_user
+          %li.dropdown
+            %a{"data-toggle" => "dropdown", :href => "#"}
+              ="Welcome First Name"
+              &nbsp;
+              =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", width: "25px", class: "img-rounded")
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                =link_to "Profile", "#"
+              %li= link_to "Mailbox", "#"
+              %li= link_to "Credits", "#"
+              %li= link_to "Appointments", "#"
+              %li= link_to "Settings", "#"
+              %li.divider
+              %li= link_to "Sign out", "#"
+
+
+        -else
+          %li
+            = link_to "Sign in", GOOGLE_OAUTH_PATH
+      %ul.nav.navbar-nav
+        -if current_user
+          //items for current users
+        -else
+          %li.active
+            %a{:href => "#home"} Home
+          %li
+            %a{:href => "#how-it-works"} How it works
+          %li
+            %a{:href => "#get-started"} Get started

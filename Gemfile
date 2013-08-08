@@ -26,6 +26,8 @@ ruby '2.0.0'
 	gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails',
                               :branch => '3.0.0'
+  gem 'font-awesome-sass-rails'
+
 # CONFIG VARIABLES
 	gem 'figaro'
 

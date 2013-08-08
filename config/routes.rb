@@ -7,7 +7,7 @@ Lorious::Application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
 
   # USER PROFILE
-  get "/profile" => "profiles#show", as: :profile
+  get "/profile" => "profiles#show", as: :user_profile
 
   # USER PAYMENTS
   get "/new-card" => "users#new_card", as: :new_card

@@ -1,5 +1,5 @@
 var stripeResponseHandler = function(status, response) {
-  var $form = $('.add-stripe-credit-card-form');
+  var $form = $('.add-credit-card-form');
 
   if (response.error) {
     // Show the errors on the form
@@ -20,7 +20,7 @@ jQuery(function($) {
   $("input.card-expiry").payment("formatCardExpiry");
   $("input.card-cvc").payment("formatCardCVC");
 
-  $('.add-stripe-credit-card-form').submit(function(event) {
+  $('.add-credit-card-form').submit(function(event) {
     var $form = $(this);
 
     // Disable the submit button to prevent repeated clicks

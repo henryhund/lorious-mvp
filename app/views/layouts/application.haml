@@ -5,8 +5,6 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "//cloud.typography.com/7516432/790802/css/fonts.css"
     = javascript_include_tag "application", "data-turbolinks-track" => true
-		= yield :page_specific_javascript
-
     = csrf_meta_tags
     = yield(:head)
 

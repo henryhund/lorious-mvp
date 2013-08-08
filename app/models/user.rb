@@ -1,14 +1,13 @@
 class User < ActiveRecord::Base
 # ASSOCIATIONS
-	has_many :authentications
-	has_one :profile
+	has_many :authentications, dependent: :destroy
+	has_one :profile, dependent: :destroy
 
 # VALIDATIONS
 
 # SPECIAL FEATURES
 
 # SCOPES
-	default_scope -> { where(active: true) }
 
 # DELEGATIONS
 
@@ -16,10 +15,6 @@ class User < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
-	end
-
-	def destroy
-		self.update_attributes(active: false)
 	end
 
 	# def to_param
@@ -31,8 +26,11 @@ class User < ActiveRecord::Base
 	def create_stripe_customer(card_token)
 		stripe_response = Stripe::Customer.create(email: self.email, card: card_token)
     save_stripe_customer(stripe_response)
-    save_last_4_digits(stripe_response)
-    save_card_type(stripe_response)
+
+    if stripe_response.active_card.present?
+	    save_last_4_digits(stripe_response)
+	    save_card_type(stripe_response)
+	  end
 	end
 
   def update_credit_card(token)
@@ -45,7 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def has_credit_card?
-     return true if self.stripe_customer_id.present?
+     return true if self.stripe_customer_id.present? && self.last_4_digits.present? && self.card_type.present?
   end
 
 # PRIVATE METHODS

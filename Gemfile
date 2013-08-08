@@ -26,6 +26,8 @@ ruby '2.0.0'
 	gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails',
                               :branch => '3.0.0'
+# CONFIG VARIABLES
+	gem 'figaro'
 
 # USER MANAGEMENT
 	gem 'omniauth-google-oauth2'

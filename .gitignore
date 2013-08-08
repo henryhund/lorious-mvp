@@ -18,3 +18,6 @@
 config/database.yml
 .sass-cache
 TODO
+
+# Ignore application configuration
+/config/application.yml

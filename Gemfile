@@ -22,6 +22,9 @@ ruby '2.0.0'
 	gem 'turbolinks'
 	gem 'jquery-turbolinks'
 
+# CONFIG VARIABLES
+	gem 'figaro'
+
 # USER MANAGEMENT
 	gem 'omniauth-google-oauth2'
 

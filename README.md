@@ -18,11 +18,8 @@
 	* Create a database.yml file that corresponds to the template in config/example_database.yml
 	* run the command: `rake db:migrate` to ensure any pending database migrations are ran
 
-	## ENVIRONMENT VARIABLES THAT NEED TO BE SET
-		- LORIOUS_GOOGLE_ID
-		- LORIOUS_GOOGLE_SECRET
-		- LORIOUS_STRIPE_PUBLIC_KEY
-		- LORIOUS_STRIPE_SECRET_KEY
+	* run the command: `rails generate figaro:install` to generate the application.yml file which stores the application environment variables.
+		* A list of all the api keys that need to be set can be found in config/api_keys_template.yml
 
 # RUNNING TETS
 

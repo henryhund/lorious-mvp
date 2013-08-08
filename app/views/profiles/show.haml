@@ -1,17 +1,4 @@
-%h1 This is the profile
+%h1 This is the profile for an expert
+%h2= @expert
 
-.authentications
-  - current_user.authentications.each do |auth|
-    .authentication
-      %p= auth
-
-.payment-information
-  .credit-card-fields
-    - if current_user.has_credit_card?
-      %p= "#{current_user.card_type.titleize} **** **** **** #{current_user.last_4_digits}"
-      = link_to "Edit Payment Information", "#", class: "edit-credit-card"
-      = link_to "Purchase Credits", "#", class: "purchase-credits"
-    - else
-      = link_to "Add Credit Card", new_card_url, class: "add-credit-card"
-
-.credit-information
+.expert-information

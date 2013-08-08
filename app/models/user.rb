@@ -15,10 +15,12 @@ class User < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
+    self.name
 	end
 
-	# def to_param
-	# end
+	def to_param
+    self.username
+	end
 
 # CLASS METHODS
 

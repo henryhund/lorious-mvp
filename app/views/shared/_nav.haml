@@ -9,26 +9,6 @@
     %a.navbar-brand{:href => "#"}
       =image_tag "https://s3.amazonaws.com/lorious/layout/lorious_2color.svg", width: "110px"
     .nav-collapse.collapse.navbar-responsive-collapse
-      %ul.nav.navbar-nav
-        %li
-          =link_to "Search for Experts", "#"
-
-      %ul.nav.navbar-nav.pull-right
-        %li
-          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
-            %span.label.label-default
-              %i.icon-envelope.icon-white
-              (#)
-        %li
-          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
-            %span.label.label-danger
-              %i.icon-calendar
-              (#)
-        %li
-          =link_to("#", style:"padding-left:0px;padding-right:0px;") do
-            %span.label.label-info
-              %i.icon-asterisk
-              (#)
       %ul.nav.navbar-nav.pull-right
         -if current_user
           %li.dropdown
@@ -45,7 +25,22 @@
               %li= link_to "Appointments", "#"
               %li= link_to "Settings", "#"
               %li.divider
-              %li= link_to "Sign out", "#"
+              %li= link_to "Sign out", signout_path
+          %li
+            =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+              %span.label.label-default
+                %i.icon-envelope.icon-white
+                (#)
+          %li
+            =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+              %span.label.label-danger
+                %i.icon-calendar
+                (#)
+          %li
+            =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+              %span.label.label-info
+                %i.icon-asterisk
+                (#)
 
 
         -else
@@ -53,7 +48,11 @@
             = link_to "Sign in", GOOGLE_OAUTH_PATH
       %ul.nav.navbar-nav
         -if current_user
-          //items for current users
+          %li
+            =link_to "Search for Experts", "#"
+          %li
+            =link_to "Recent Requests", "#"
+
         -else
           %li.active
             %a{:href => "#home"} Home

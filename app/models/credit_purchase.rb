@@ -14,6 +14,7 @@ class CreditPurchase < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
+		"PURCHASE - #{self.created_at.strftime('%b %d %Y')} - #{self.number_of_credits} credits - $#{self.dollar_amount / 100.0}"
 	end
 
 # CLASS METHODS

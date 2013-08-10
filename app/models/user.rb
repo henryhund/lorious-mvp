@@ -20,9 +20,13 @@ class User < ActiveRecord::Base
     self.name
 	end
 
-	def to_param
+  def name
+    "#{self.firstname} #{self.lastname}"
+  end
+
+  def to_param
     self.username
-	end
+  end
 
 # CLASS METHODS
 
@@ -31,10 +35,19 @@ class User < ActiveRecord::Base
 		customer = create_stripe_customer_api_call(card_token)
     self.update_attributes(
       stripe_customer_id: customer.id,
-      last_4_digits: customer.cards.first.last4,
+      card_last_4_digits: customer.cards.first.last4,
       card_type: customer.cards.first.type.downcase
     )
  	end
+
+  def create_stripe_bank_account(account_token)
+    recipient = create_stripe_bank_account_api_call(account_token)
+    self.update_attributes(
+      stripe_recipient_id: recipient.id,
+      bank_name: recipient.active_account.bank_name.downcase,
+      bank_last_4_digits: recipient.active_account.last4
+      )
+  end
 
   def purchase_credits(number_of_credits)
     validate_credit_purchase(number_of_credits)
@@ -46,29 +59,44 @@ class User < ActiveRecord::Base
       stripe_fee:           charge["fee"].to_i,
       number_of_credits:    number_of_credits,
       dollar_amount:        charge["amount"].to_i
-      })
+    })
 
     new_credit_balance = self.credit_balance + number_of_credits
     self.update_attributes(credit_balance: new_credit_balance)
   end
 
-  # def update_credit_card(token)
-  #   stripe_customer = Stripe::Customer.retrieve(self.stripe_customer_id)
-  #   stripe_customer.card = token
-  #   stripe_response = stripe_customer.save
-  #   last_4_digits = stripe_response.active_card.last4
-  #   card_type = stripe_response.active_card.type.downcase
-  #   self.update_attributes(last_4_digits: last_4_digits, card_type: card_type)
-  # end
+  def payout_credits(number_of_credits)
+    validate_credit_payout(number_of_credits)
+    dollar_amount = number_of_credits * 100
+    payout = payout_credits_from_stripe_api_call(dollar_amount)
+
+    self.credit_payouts.create!({
+      stripe_id:            payout["id"],
+      stripe_fee:           payout["fee"].to_i,
+      number_of_credits:    number_of_credits,
+      dollar_amount:        payout["amount"].to_i
+    })
+
+    new_credit_balance = self.credit_balance - number_of_credits
+    self.update_attributes(credit_balance: new_credit_balance)
+  end
 
   def has_credit_card?
-     return true if self.stripe_customer_id.present? && self.last_4_digits.present? && self.card_type.present?
+     return true if self.stripe_customer_id.present? && self.card_last_4_digits.present? && self.card_type.present?
+  end
+
+  def has_bank_account?
+    return true if self.stripe_recipient_id.present? && self.bank_last_4_digits.present? && self.bank_name.present?
   end
 
 # PRIVATE METHODS
 private
   def create_stripe_customer_api_call(card_token)
     Stripe::Customer.create(card: card_token, description: self.email)
+  end
+
+  def create_stripe_bank_account_api_call(account_token)
+    Stripe::Recipient.create(name: self.name, type: "individual", email: self.email, bank_account: account_token)
   end
 
   def purchase_credits_from_stripe_api_call(dollar_amount)
@@ -84,9 +112,27 @@ private
     end
   end
 
+  def payout_credits_from_stripe_api_call(dollar_amount)
+    begin
+      transfer = Stripe::Transfer.create(
+        amount: dollar_amount,
+        currency: "usd",
+        recipient: self.stripe_recipient_id,
+        statement_descriptor: "Lorious - Credit Payout"
+        )
+    rescue Exception => e
+      # HANDLING
+    end
+  end
+
   def validate_credit_purchase(number_of_credits)
     raise CreditPurchaseError.new(:purchase_credits, "number of credits is negative") if number_of_credits < 0
     raise CreditPurchaseError.new(:purchase_credits, "number of credits is zero") if number_of_credits == 0
+  end
+
+  def validate_credit_payout(number_of_credits)
+    raise CreditPayoutError.new(:payout_credits, "number of credits is negative") if number_of_credits < 0
+    raise CreditPayoutError.new(:payout_credits, "number of credits is zero") if number_of_credits == 0
   end
 
 end

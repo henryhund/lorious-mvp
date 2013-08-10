@@ -16,3 +16,5 @@ en:
   credits:
     purchase:
       success: "successfully purchased %{amount} credits!"
+    payout:
+      success: "successfully payed out %{amount} credits!"

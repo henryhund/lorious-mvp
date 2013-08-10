@@ -52,6 +52,12 @@ class User < ActiveRecord::Base
     self.update_attributes(credit_balance: new_credit_balance)
   end
 
+  def payout_credits(number_of_credits)
+    validate_credit_payout(number_of_credits)
+    new_credit_balance = self.credit_balance - number_of_credits
+    self.update_attributes(credit_balance: new_credit_balance)
+  end
+
   # def update_credit_card(token)
   #   stripe_customer = Stripe::Customer.retrieve(self.stripe_customer_id)
   #   stripe_customer.card = token
@@ -87,6 +93,11 @@ private
   def validate_credit_purchase(number_of_credits)
     raise CreditPurchaseError.new(:purchase_credits, "number of credits is negative") if number_of_credits < 0
     raise CreditPurchaseError.new(:purchase_credits, "number of credits is zero") if number_of_credits == 0
+  end
+
+  def validate_credit_payout(number_of_credits)
+    raise CreditPayoutError.new(:payout_credits, "number of credits is negative") if number_of_credits < 0
+    raise CreditPayoutError.new(:payout_credits, "number of credits is zero") if number_of_credits == 0
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130808191720) do
+ActiveRecord::Schema.define(version: 20130810151539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20130808191720) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "name"
     t.string   "stripe_customer_id"
     t.boolean  "active",                       default: true
     t.datetime "created_at"
@@ -75,6 +74,8 @@ ActiveRecord::Schema.define(version: 20130808191720) do
     t.string   "card_type"
     t.string   "username"
     t.integer  "credit_balance",               default: 0
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
 end

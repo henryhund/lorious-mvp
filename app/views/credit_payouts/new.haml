@@ -1,0 +1,8 @@
+%h1 This is the new credit payout page
+
+= form_tag credit_payouts_url do
+  %fieldset
+    = label_tag :number_of_credits
+    = number_field_tag :number_of_credits
+  %fieldset
+    = submit_tag "Payout"

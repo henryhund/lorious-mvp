@@ -13,7 +13,7 @@
         -if current_user
           %li.dropdown
             %a{"data-toggle" => "dropdown", :href => "#"}
-              ="Welcome First Name"
+              ="Welcome #{current_user.firstname}"
               &nbsp;
               =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", width: "25px", class: "img-rounded")
               %b.caret
@@ -21,9 +21,9 @@
               %li
                 =link_to "Profile", "#"
               %li= link_to "Mailbox", "#"
-              %li= link_to "Credits", "#"
+              %li= link_to "Credits", credits_url
               %li= link_to "Appointments", "#"
-              %li= link_to "Settings", "#"
+              %li= link_to "Settings", account_url
               %li.divider
               %li= link_to "Sign out", signout_path
           %li
@@ -40,8 +40,7 @@
             =link_to("#", style:"padding-left:0px;padding-right:0px;") do
               %span.label.label-info
                 %i.icon-asterisk
-                (#)
-
+                = "( #{current_user.credit_balance} )"
 
         -else
           %li

@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 		redirect_to account_url
 	end
 
-	def purchase_credits
+	def credits
+		@credit_transactions = current_user.credit_purchases
 	end
 
 end

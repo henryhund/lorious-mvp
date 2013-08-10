@@ -16,6 +16,7 @@ Lorious::Application.routes.draw do
 
   # USER ACCOUNT
   get "/account" => "users#show", as: :account
+  get "/credits" => "users#credits", as: :credits
 
   # EXPERT PROFILE
   get "/:username" => "profiles#show", as: :user_profile

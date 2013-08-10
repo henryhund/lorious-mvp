@@ -1,5 +1,7 @@
 .add-card{data: {no_turbolink: true}}
 
+  %h1 This is the new credit card url
+
   = form_tag create_card_url, class: "add-credit-card-form" do
     %span.payment-errors
     .form-row
@@ -18,10 +20,9 @@
         %input{"data-stripe" => "exp-year", :size => "4", :type => "text"}/
     = submit_tag "Submit"
 
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+:coffeescript
+  Stripe.setPublishableKey("#{STRIPE_PUBLISHABLE_KEY}");
 
-  :coffeescript
-    Stripe.setPublishableKey("#{STRIPE_PUBLISHABLE_KEY}");
-
-  = javascript_include_tag "jquery_payment.js"
-  = javascript_include_tag "new_card.js"
+= javascript_include_tag "jquery_payment.js"
+= javascript_include_tag "new_card.js"

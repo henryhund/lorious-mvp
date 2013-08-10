@@ -14,6 +14,7 @@ class CreditPayout < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
+    "PAYOUT - #{self.created_at.strftime('%b %d %Y')} - #{self.number_of_credits} credits - $#{self.dollar_amount / 100.0}"
 	end
 
 # CLASS METHODS

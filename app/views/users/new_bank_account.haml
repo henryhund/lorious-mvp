@@ -1,0 +1,27 @@
+.add-bank-account{data: {no_turbolink: true}}
+
+  %h1 This is the new bank account url
+
+  = form_tag create_bank_account_url, class: "add-bank-account-form" do
+    %span.payment-errors
+    .form-row
+      %label
+        %span Bank Location
+        %select.bank-country{"data-stripe" => "country"}
+          %option{value: "US"} United States
+    .form-row
+      %label
+        %span Account Number
+        %input.account-number{"data-stripe" => "accountNumber", size: "17"}
+    .form-row
+      %label
+        %span Routing Number
+        %input.routing-number{"data-stripe" => "routingNumber", size: "9"}
+    = submit_tag "Add Account"
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+:coffeescript
+  Stripe.setPublishableKey("#{STRIPE_PUBLISHABLE_KEY}");
+
+= javascript_include_tag "jquery_payment.js"
+= javascript_include_tag "new_bank_account.js"

@@ -1,0 +1,5 @@
+%h1 This is the credit history page
+
+%ul.credit-transactions
+	- @credit_transactions.each do |credit_transaction|
+		%li.credit-transaction= credit_transaction

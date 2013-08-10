@@ -13,6 +13,11 @@ en:
       add_card:
         success: "successfully added card to account"
         failure: "failed to add card to account"
+      add_bank_account:
+        success: "successfully linked bank account"
+        failure: "failed to link bank account"
   credits:
     purchase:
       success: "successfully purchased %{amount} credits!"
+    payout:
+      success: "successfully payed out %{amount} credits!"

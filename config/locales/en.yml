@@ -2,14 +2,17 @@ en:
   user:
     signin:
       success: "successfully signed in"
-      failure: "there was an error signing in with the email address %w{email_address}"
+      failure: "there was an error signing in with the email address %{email_address}"
     signout:
       success: "successfully signed out"
     authentication:
       success: "successfully linked account"
     registration:
-      success: "successfully registered"
+      success: "successfully registered for lorious"
     payment:
       add_card:
         success: "successfully added card to account"
         failure: "failed to add card to account"
+  credits:
+    purchase:
+      success: "successfully purchased %{amount} credits!"

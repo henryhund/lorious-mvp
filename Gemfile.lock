@@ -1,11 +1,10 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: ba03113dbee5d9e56b622507c78555446a7f6e43
-  branch: 3.0.0
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 466d5a3293bb02cda9e99d2afc616d7624ac5556
+  branch: 3
   specs:
-    anjlab-bootstrap-rails (3.0.0.rc1)
-      railties (>= 3.0)
-      sass (>= 3.2)
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -265,9 +264,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
   better_errors
   binding_of_caller
+  bootstrap-sass!
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)

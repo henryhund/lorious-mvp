@@ -18,5 +18,6 @@
     .container
       .main{class: "#{controller.controller_name}-#{controller.action_name}"}
         = render "shared/nav"
-        = content_for?(:content) ? yield(:content) : yield
+        .row.top-row
+          = content_for?(:content) ? yield(:content) : yield
     = render "shared/footer_public"

@@ -5,13 +5,18 @@ describe CreditPayout do
 	context "validations" do
 
 		it "does not let the user payout a negative amount of credits" do
-			user = FactoryGirl.create(:user)
+			user = FactoryGirl.create(:user, credit_balance: 100)
 			expect { user.payout_credits(-10) }.to raise_error(CreditPayoutError)
 		end
 
-		it "does not let the user purchase zero credits" do
-			user = FactoryGirl.create(:user)
+		it "does not let the user payout zero credits" do
+			user = FactoryGirl.create(:user, credit_balance: 100)
 			expect { user.payout_credits(0) }.to raise_error(CreditPayoutError)
+		end
+
+		it "does not let the user payout more credits than they currently have" do
+			user = FactoryGirl.create(:user, credit_balance: 100)
+			expect { user.payout_credits(101) }.to raise_error(CreditPayoutError)
 		end
 
 	end

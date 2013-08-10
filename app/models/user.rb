@@ -133,6 +133,7 @@ private
   def validate_credit_payout(number_of_credits)
     raise CreditPayoutError.new(:payout_credits, "number of credits is negative") if number_of_credits < 0
     raise CreditPayoutError.new(:payout_credits, "number of credits is zero") if number_of_credits == 0
+    raise CreditPayoutError.new(:payout_credits, "does not have enough credits") if number_of_credits > self.credit_balance
   end
 
 end

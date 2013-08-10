@@ -25,12 +25,12 @@ describe CreditPayout do
 		end
 
 		it "creates a new credit payout object" do
-		# 	user = FactoryGirl.create(:user)
-		# 	user.purchase_credits(50) ; credit_purchase = user.credit_purchases.first
-		# 	credit_purchase.stripe_id.should eq "charge_1234"
-		# 	credit_purchase.stripe_fee.should eq 103
-		# 	credit_purchase.number_of_credits.should eq 50
-		# 	credit_purchase.dollar_amount.should eq 5000
+			user = FactoryGirl.create(:user, credit_balance: 100)
+			user.payout_credits(42) ; credit_payout = user.credit_payouts.first
+			credit_payout.stripe_id.should eq "payout_1234"
+			credit_payout.stripe_fee.should eq 25
+			credit_payout.number_of_credits.should eq 42
+			credit_payout.dollar_amount.should eq 4200
 		end
 
 	end

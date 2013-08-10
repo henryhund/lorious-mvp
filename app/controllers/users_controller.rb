@@ -28,7 +28,8 @@ class UsersController < ApplicationController
 	end
 
 	def credits
-		@credit_transactions = current_user.credit_purchases
+		@credit_transactions = current_user.credit_purchases | current_user.credit_payouts
+		@credit_transactions.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
 	end
 
 end

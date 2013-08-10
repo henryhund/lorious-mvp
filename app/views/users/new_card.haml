@@ -1,28 +1,29 @@
-.add-card{data: {no_turbolink: true}}
+- content_for :content do
+  .add-card{data: {no_turbolink: true}}
 
-  %h1 This is the new credit card url
+    %h1 This is the new credit card url
 
-  = form_tag create_card_url, class: "add-credit-card-form" do
-    %span.payment-errors
-    .form-row
-      %label
-        %span Card Number
-        %input.card-number{"data-stripe" => "number", :size => "20", :type => "text"}/
-    .form-row
-      %label
-        %span CVC
-        %input.card-cvc{"data-stripe" => "cvc", :size => "4", :type => "text"}/
-    .form-row
-      %label
-        %span Expiration (MM/YYYY)
-        %input{"data-stripe" => "exp-month", :size => "2", :type => "text"}/
-        %span /
-        %input{"data-stripe" => "exp-year", :size => "4", :type => "text"}/
-    = submit_tag "Submit"
+    = form_tag create_card_url, class: "add-credit-card-form" do
+      %span.payment-errors
+      .form-row
+        %label
+          %span Card Number
+          %input.card-number{"data-stripe" => "number", :size => "20", :type => "text"}/
+      .form-row
+        %label
+          %span CVC
+          %input.card-cvc{"data-stripe" => "cvc", :size => "4", :type => "text"}/
+      .form-row
+        %label
+          %span Expiration (MM/YYYY)
+          %input{"data-stripe" => "exp-month", :size => "2", :type => "text"}/
+          %span /
+          %input{"data-stripe" => "exp-year", :size => "4", :type => "text"}/
+      = submit_tag "Submit"
 
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-:coffeescript
-  Stripe.setPublishableKey("#{STRIPE_PUBLISHABLE_KEY}");
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  :coffeescript
+    Stripe.setPublishableKey("#{STRIPE_PUBLISHABLE_KEY}");
 
-= javascript_include_tag "jquery_payment.js"
-= javascript_include_tag "new_card.js"
+  = javascript_include_tag "jquery_payment.js"
+  = javascript_include_tag "new_card.js"

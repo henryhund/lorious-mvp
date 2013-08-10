@@ -13,9 +13,10 @@
   -else
     %body
   .wrapper
+    = render "shared/notifications"
+
     .container
       .main{class: "#{controller.controller_name}-#{controller.action_name}"}
-        = render "shared/header_public" # to be switched out depending on whether logged in or not
-        = render "shared/notifications"
+        = render "shared/nav"
         = content_for?(:content) ? yield(:content) : yield
     = render "shared/footer_public"

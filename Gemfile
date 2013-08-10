@@ -23,9 +23,13 @@ ruby '2.0.0'
 	gem 'jquery-turbolinks'
 
 # ASSETS - DESIGN
-	gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails',
-                              :branch => '3.0.0'
+	# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+ 	#                              :github => 'anjlab/bootstrap-rails',
+ 	#                              :branch => '3.0.0'
+
+	gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
+  gem 'font-awesome-sass-rails'
+
 # CONFIG VARIABLES
 	gem 'figaro'
 

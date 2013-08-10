@@ -1,6 +1,13 @@
-html,body
-    height: 100%
+@import "bootstrap";
 
+html,body {
+  height: 100%;
+  }
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  }
 
 // .row {
 //   padding-top: 10px;

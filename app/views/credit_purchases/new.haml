@@ -1,0 +1,8 @@
+%h1 New Credit Purchase
+
+= form_tag credit_purchases_url do
+  %fieldset
+    = label_tag :number_of_credits
+    = number_field_tag :number_of_credits
+  %fieldset
+    = submit_tag "Purchase"

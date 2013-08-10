@@ -9,7 +9,10 @@ Lorious::Application.routes.draw do
   # USER PAYMENTS
   get "/new-card" => "users#new_card", as: :new_card
   post "/create-card" => "users#create_card", as: :create_card
-  get "/purchase-credits" => "users#purchase_credits", as: :purchase_credits
+
+  # CREDIT MANAGEMENT
+  resources :credit_purchases, only: [:new, :create]
+  resources :credit_payouts, only: [:new, :create]
 
   # USER ACCOUNT
   get "/account" => "users#show", as: :account

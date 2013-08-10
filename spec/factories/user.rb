@@ -15,6 +15,7 @@ FactoryGirl.define do
 		after(:build) do |user|
 			user.stub(:create_stripe_customer_api_call).and_return(OpenStruct.new(id: "cus_1234", cards: [OpenStruct.new(last4: "4242", type: "Visa")]))
 			user.stub(:purchase_credits_from_stripe_api_call).and_return(OpenStruct.new(id: "charge_1234", fee: "103", amount: "5000"))
+			user.stub(:create_stripe_bank_account_api_call).and_return(OpenStruct.new(id: "rp_1234", active_account: OpenStruct.new(last4: "6789", bank_name: "STRIPE TEST BANK")))
 		end
 
 	end

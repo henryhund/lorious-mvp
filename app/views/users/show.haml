@@ -1,10 +1,13 @@
 .payment-information{data: {no_turbolink: true}}
   .credit-card-fields
     - if current_user.has_credit_card?
-      %p= "#{current_user.card_type.titleize} **** **** **** #{current_user.last_4_digits}"
+      %p= "#{current_user.card_type.titleize} **** **** **** #{current_user.card_last_4_digits}"
       = link_to "Edit Payment Information", "#", class: "edit-credit-card"
       = link_to "Purchase Credits", new_credit_purchase_url, class: "purchase-credits"
-      = link_to "Payout Credits", new_credit_payout_url, class: "payout-credits"
+      - if current_user.has_bank_account?
+        = link_to "Payout Credits", new_credit_payout_url, class: "payout-credits"
+      - else
+        = link_to "Add Bank Account", new_bank_account_url, class: "add-bank-account"
     - else
       = link_to "Add Credit Card", new_card_url, class: "add-credit-card"
 

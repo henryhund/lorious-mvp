@@ -1,4 +1,4 @@
-.payment-information
+.payment-information{data: {no_turbolink: true}}
   .credit-card-fields
     - if current_user.has_credit_card?
       %p= "#{current_user.card_type.titleize} **** **** **** #{current_user.last_4_digits}"

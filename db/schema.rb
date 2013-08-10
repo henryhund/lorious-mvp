@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20130808191720) do
     t.string   "last_4_digits",      limit: 4
     t.string   "card_type"
     t.string   "username"
-    t.integer  "credit_balance"
+    t.integer  "credit_balance",               default: 0
   end
 
 end

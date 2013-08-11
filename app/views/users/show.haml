@@ -8,8 +8,15 @@
       = link_to "Add Credit Card", new_card_url, class: "add-credit-card"
 
     - if current_user.has_bank_account?
+      %p= "#{current_user.bank_name.titleize} - **** **** #{current_user.bank_last_4_digits}"
       = link_to "Payout Credits", new_credit_payout_url, class: "payout-credits"
     - else
       = link_to "Add Bank Account", new_bank_account_url, class: "add-bank-account"
 
 .credit-information
+
+.appointment-information
+  %h1 Pending Appointment Requests
+  %ul
+    - current_user.appointment_requests.each do |appointment_request|
+      %li= appointment_request

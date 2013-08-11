@@ -1,0 +1,14 @@
+%h1 This is a new appointment request for an expert
+
+= form_tag appointment_requests_url do
+  = hidden_field_tag :expert_id, @expert.id
+  %fieldset
+    = label_tag :length, "Length"
+    = select_tag :length, options_for_select([["15", "15"], ["30", "30"], ["45", "45"], ["1:00", "60"], ["1:15", "75"], ["1:30", "90"], ["1:45", "105"], ["2:00", "120"]])
+  %fieldset
+    = label_tag :date, "Date"
+    = select_datetime
+  %fieldset
+    = label_tag :description, "Description"
+    = text_area_tag :description
+  = submit_tag "Request Appointment"

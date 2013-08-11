@@ -35,6 +35,7 @@ ruby '2.0.0'
 
 # USER MANAGEMENT
 	gem 'omniauth-google-oauth2'
+	gem 'google-api-client'
 
 # FILE UPLOADS
 	gem 'carrierwave'

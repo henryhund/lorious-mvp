@@ -35,3 +35,17 @@ private
 	end
 
 end
+
+### GOOGLE CALENDAR LOGIC FOR LATER
+# require "google/api_client"
+# token = omniauth["credentials"]["token"]
+# client = Google::APIClient.new
+# client.authorization.access_token = token
+# service = client.discovered_api('calendar', 'v3')
+# result = client.execute(
+# 	api_method: service.calendar_list.list,
+# 	parameters: {},
+# 	headers: { "Content-Type" => "application/json" }
+# )
+
+# render json: result.data

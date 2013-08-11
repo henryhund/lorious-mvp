@@ -2,3 +2,6 @@
 %h2= @expert
 
 .expert-information
+
+.book-appointment
+  = link_to "Book Appointment", new_expert_appointment_request_url(@expert.username)

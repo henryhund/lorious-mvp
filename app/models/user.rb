@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_one :profile, dependent: :destroy
   has_many :credit_purchases
   has_many :credit_payouts
+  has_many :appointment_requests, foreign_key: "requester_id"
 
 # VALIDATIONS
 
@@ -26,6 +27,10 @@ class User < ActiveRecord::Base
 
   def to_param
     self.username
+  end
+
+  def expert?
+    false
   end
 
 # CLASS METHODS

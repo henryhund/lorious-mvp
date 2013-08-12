@@ -17,6 +17,11 @@ class AddProfileFieldsToUser < ActiveRecord::Migration
       t.text :bio
       t.timestamps
     end
+
+    remove_column :users, :display_name
+    remove_column :users, :tagline
+    remove_column :users, :bio
+    remove_column :users, :hourly_rate
   end
 
 end

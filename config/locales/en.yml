@@ -22,7 +22,6 @@ en:
     payout:
       success: "successfully payed out %{amount} credits!"
   appointment:
-    request:
-      create:
-        success: "successfully created appointment"
-        failure: "there was an error creating your appointment"
+    create:
+      success: "successfully created appointment"
+      failure: "there was an error creating your appointment"

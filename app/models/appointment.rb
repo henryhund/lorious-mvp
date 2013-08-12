@@ -1,4 +1,4 @@
-class AppointmentRequest < ActiveRecord::Base
+class Appointment < ActiveRecord::Base
 # ASSOCIATIONS
   belongs_to :requester, class_name: "User"
   belongs_to :expert, class_name: "Expert"
@@ -14,10 +14,14 @@ class AppointmentRequest < ActiveRecord::Base
 # CALLBACKS
   before_validation(on: :create) do
     if self.requester.credit_balance < calculate_credits_to_charge
-      raise AppointmentRequestError.new(:create, "requester does not have enough credits")
+      raise AppointmentError.new(:create, "requester does not have enough credits")
     else
       self.number_of_credits = calculate_credits_to_charge
     end
+  end
+
+  before_create do
+    self.state = "user_confirmed"
   end
 
 # CONFIG METHODS

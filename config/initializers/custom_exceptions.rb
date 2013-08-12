@@ -25,7 +25,7 @@ class CreditPayoutError < StandardError
 
 end
 
-class AppointmentRequestError < StandardError
+class AppointmentError < StandardError
 
 	def initialize(failed_action, message)
 		@failed_action = failed_action

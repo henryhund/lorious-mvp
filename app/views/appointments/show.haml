@@ -2,3 +2,8 @@
 
 .appointment-request-information
 %p= @appointment.description
+
+.conversation
+  - @appointment.messages.each do |message|
+    .message
+      %p= message

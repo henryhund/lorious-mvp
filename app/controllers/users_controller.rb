@@ -36,4 +36,7 @@ class UsersController < ApplicationController
 		@credit_transactions.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
 	end
 
+	def mailbox
+	end
+
 end

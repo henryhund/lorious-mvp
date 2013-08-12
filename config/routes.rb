@@ -19,14 +19,15 @@ Lorious::Application.routes.draw do
   # USER ACCOUNT
   get "/account" => "users#show", as: :account
   get "/credits" => "users#credits", as: :credits
-
-  # EXPERT PROFILE
-  get "/:username" => "users#profile", as: :user_profile
+  get "/mailbox" => "users#mailbox", as: :mailbox
 
   # APPOINTMENT MANAGEMENT
-  resources :appointments, only: [:new, :create, :show]
+  resources :appointments, only: [:new, :create, :show, :index]
   scope ':username' do
     get "appointments/new" => "appointments#new_with_expert", as: :new_expert_appointment
   end
+
+  # EXPERT PROFILE
+  get "/:username" => "users#profile", as: :user_profile
 
 end

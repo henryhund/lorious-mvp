@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 	def show
 	end
 
+	def profile
+		@expert = User.find_by_username(params[:username])
+	end
+
 	def new_card
 	end
 

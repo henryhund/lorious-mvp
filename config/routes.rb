@@ -21,7 +21,7 @@ Lorious::Application.routes.draw do
   get "/credits" => "users#credits", as: :credits
 
   # EXPERT PROFILE
-  get "/:username" => "profiles#show", as: :user_profile
+  get "/:username" => "users#profile", as: :user_profile
 
   # APPOINTMENT MANAGEMENT
   resources :appointment_requests, only: [:new, :create, :show]

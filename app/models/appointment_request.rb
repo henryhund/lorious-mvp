@@ -12,6 +12,13 @@ class AppointmentRequest < ActiveRecord::Base
 # DELEGATIONS
 
 # CALLBACKS
+  before_validation(on: :create) do
+    if self.requester.credit_balance < calculate_credits_to_charge
+      raise AppointmentRequestError.new(:create, "requester does not have enough credits")
+    else
+      self.number_of_credits = calculate_credits_to_charge
+    end
+  end
 
 # CONFIG METHODS
   def to_s
@@ -24,5 +31,8 @@ class AppointmentRequest < ActiveRecord::Base
 
 # PRIVATE METHODS
 private
+  def calculate_credits_to_charge
+    return ( expert.hourly_rate * length / 60.0 )
+  end
 
 end

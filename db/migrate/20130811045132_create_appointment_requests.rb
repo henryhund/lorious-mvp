@@ -7,6 +7,7 @@ class CreateAppointmentRequests < ActiveRecord::Migration
       t.datetime :start_time
       t.string :state
       t.text :description
+      t.integer :number_of_credits
       t.timestamps
     end
 

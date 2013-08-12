@@ -18,5 +18,5 @@
 .appointment-information
   %h1 Pending Appointment Requests
   %ul
-    - current_user.appointment_requests.each do |appointment_request|
-      %li= appointment_request
+    - current_user.appointments.each do |appointment|
+      %li= appointment

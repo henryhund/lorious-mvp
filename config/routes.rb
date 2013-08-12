@@ -21,12 +21,12 @@ Lorious::Application.routes.draw do
   get "/credits" => "users#credits", as: :credits
 
   # EXPERT PROFILE
-  get "/:username" => "profiles#show", as: :user_profile
+  get "/:username" => "users#profile", as: :user_profile
 
   # APPOINTMENT MANAGEMENT
-  resources :appointment_requests, only: [:new, :create, :show]
+  resources :appointments, only: [:new, :create, :show]
   scope ':username' do
-    get "appointment_requests/new" => "appointment_requests#new_with_expert", as: :new_expert_appointment_request
+    get "appointments/new" => "appointments#new_with_expert", as: :new_expert_appointment
   end
 
 end

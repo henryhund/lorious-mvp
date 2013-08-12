@@ -1,6 +1,6 @@
 %h1 This is a new appointment request for an expert
 
-= form_tag appointment_requests_url do
+= form_tag appointments_url do
   = hidden_field_tag :expert_id, @expert.id
   %fieldset
     = label_tag :length, "Length"

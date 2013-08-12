@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	has_one :profile, dependent: :destroy
   has_many :credit_purchases
   has_many :credit_payouts
-  has_many :appointment_requests, foreign_key: "requester_id"
+  has_many :appointments, foreign_key: "requester_id"
 
 # VALIDATIONS
 

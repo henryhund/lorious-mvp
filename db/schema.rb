@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811045132) do
+ActiveRecord::Schema.define(version: 20130812183926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointment_requests", force: true do |t|
+  create_table "appointments", force: true do |t|
     t.integer  "requester_id"
     t.integer  "expert_id"
     t.integer  "length"
     t.datetime "start_time"
     t.string   "state"
     t.text     "description"
+    t.integer  "number_of_credits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "appointment_requests", ["state"], name: "index_appointment_requests_on_state", using: :btree
+  add_index "appointments", ["state"], name: "index_appointments_on_state", using: :btree
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -68,17 +69,6 @@ ActiveRecord::Schema.define(version: 20130811045132) do
     t.datetime "updated_at"
   end
 
-  create_table "profiles", force: true do |t|
-    t.integer  "user_id"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "display_name"
-    t.string   "tagline"
-    t.text     "bio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "stripe_customer_id"
@@ -95,6 +85,10 @@ ActiveRecord::Schema.define(version: 20130811045132) do
     t.string   "stripe_recipient_id"
     t.string   "bank_name"
     t.string   "type"
+    t.string   "display_name"
+    t.string   "tagline"
+    t.text     "bio"
+    t.integer  "hourly_rate"
   end
 
   add_index "users", ["type"], name: "index_users_on_type", using: :btree

@@ -2,6 +2,7 @@ class Appointment < ActiveRecord::Base
 # ASSOCIATIONS
   belongs_to :requester, class_name: "User"
   belongs_to :expert, class_name: "Expert"
+  has_many :messages
 
 # VALIDATIONS
 

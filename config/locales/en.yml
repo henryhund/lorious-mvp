@@ -25,3 +25,7 @@ en:
     create:
       success: "successfully created appointment"
       failure: "there was an error creating your appointment"
+  message:
+    on_appointment:
+      create:
+        success: "successfully added message to appointment"

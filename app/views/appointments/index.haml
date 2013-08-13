@@ -1,0 +1,5 @@
+%h1 This is the appointments index
+
+- @appointments.each do |appointment|
+  .appointment
+    = link_to appointment, appointment_url(appointment)

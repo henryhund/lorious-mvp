@@ -24,3 +24,9 @@
 # RUNNING TETS
 
 # APPLICATION SUMMARY
+	* Single Table Inheritance on User ( for Expert )
+	* State Machine for Appointment
+	* Complexity on Message
+		- Self-Referencing
+		- Conversation
+		- On Appointment

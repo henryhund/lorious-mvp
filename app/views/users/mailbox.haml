@@ -1,0 +1,8 @@
+%h1 This is the mailbox
+
+- current_user.messages.each do |message|
+  - if message.from_user == current_user
+    %span SENT
+  - elsif message.to_user == current_user
+    %span TO
+  %p= message

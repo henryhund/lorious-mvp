@@ -14,9 +14,3 @@
       = link_to "Add Bank Account", new_bank_account_url, class: "add-bank-account"
 
 .credit-information
-
-.appointment-information
-  %h1 Pending Appointment Requests
-  %ul
-    - current_user.appointments.each do |appointment|
-      %li= appointment

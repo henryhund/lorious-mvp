@@ -14,10 +14,9 @@
     %body
   .wrapper
     = render "shared/notifications"
-
-    .container
-      .main{class: "#{controller.controller_name}-#{controller.action_name}"}
+    // div required to push footer down?
+    %div
+      .main{id: "#{controller.controller_name}-#{controller.action_name}"}
         = render "shared/nav"
-        .row.top-row
-          = content_for?(:content) ? yield(:content) : yield
+        = content_for?(:content) ? yield(:content) : yield
     = render "shared/footer_public"

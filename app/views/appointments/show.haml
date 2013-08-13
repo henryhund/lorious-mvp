@@ -1,0 +1,27 @@
+%h1 This is the show page for an appointment request
+
+.appointment-request-information
+%p= @appointment.description
+
+.conversation
+  - @appointment.messages.ordered.each do |message|
+    .message
+      %p= message
+
+.add-message
+  %p Add a message
+  = form_tag messages_url do
+    = hidden_field_tag :appointment_id, @appointment.id
+    = text_area_tag :body
+    = submit_tag "Submit"
+
+- if @appointment.reviewed_by_user?(current_user)
+  .review
+    %p You have already reviewed this appointment.
+- else
+  .add-review
+    %p Review your appointment
+    = form_tag appointment_reviews_url do
+      = hidden_field_tag :appointment_id, @appointment.id
+      = text_area_tag :summary
+      = submit_tag "Submit"

@@ -1,0 +1,7 @@
+%h1 This is the profile for an expert
+%h2= @user
+
+- if @user.expert?
+  = render "expert-profile"
+- else
+  = render "user-profile"

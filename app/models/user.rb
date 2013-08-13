@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
 	has_one :profile, dependent: :destroy
   has_many :credit_purchases
   has_many :credit_payouts
-  has_many :appointment_requests, foreign_key: "requester_id"
+  has_many :appointments, foreign_key: "requester_id"
+  has_many :messages_sent, class_name: "Message", foreign_key: "from_user_id"
+  has_many :messages_received, class_name: "Message", foreign_key: "to_user_id"
 
 # VALIDATIONS
 
@@ -36,6 +38,10 @@ class User < ActiveRecord::Base
 # CLASS METHODS
 
 # INSTANCE METHODS
+  def messages
+    (self.messages_sent + self.messages_received).sort! { |a,b| a.created_at <=> b.created_at }.reverse!
+  end
+
 	def create_stripe_customer(card_token)
 		customer = create_stripe_customer_api_call(card_token)
     self.update_attributes(

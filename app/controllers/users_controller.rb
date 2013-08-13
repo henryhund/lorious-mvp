@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 	def show
 	end
 
+	def profile
+		@user = User.find_by_username(params[:username])
+	end
+
 	def new_card
 	end
 
@@ -30,6 +34,12 @@ class UsersController < ApplicationController
 	def credits
 		@credit_transactions = current_user.credit_purchases | current_user.credit_payouts
 		@credit_transactions.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
+	end
+
+	def mailbox
+	end
+
+	def calendar
 	end
 
 end

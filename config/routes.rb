@@ -20,6 +20,7 @@ Lorious::Application.routes.draw do
   get "/account" => "users#show", as: :account
   get "/credits" => "users#credits", as: :credits
   get "/mailbox" => "users#mailbox", as: :mailbox
+  get "/calendar" => "users#calendar", as: :calendar
 
   # APPOINTMENT MANAGEMENT
   resources :appointments, only: [:new, :create, :show, :index]

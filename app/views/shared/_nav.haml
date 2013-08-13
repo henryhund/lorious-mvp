@@ -22,7 +22,7 @@
                 =link_to "Profile", "#"
               %li= link_to "Mailbox", mailbox_url
               %li= link_to "Credits", credits_url
-              %li= link_to "Appointments", "#"
+              %li= link_to "Appointments", calendar_url
               %li= link_to "Settings", account_url
               %li.divider
               %li= link_to "Sign out", signout_path
@@ -32,7 +32,7 @@
                 %i.icon-envelope.icon-white
                 = "( #{Message.unread_by_user(current_user).count} )"
           %li
-            =link_to("#", style:"padding-left:0px;padding-right:0px;") do
+            =link_to(calendar_url, style:"padding-left:0px;padding-right:0px;") do
               %span.label.label-danger
                 %i.icon-calendar
                 = "( #{current_user.appointments.count} )"

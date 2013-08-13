@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	end
 
 	def profile
-		@expert = User.find_by_username(params[:username])
+		@user = User.find_by_username(params[:username])
 	end
 
 	def new_card
@@ -37,6 +37,9 @@ class UsersController < ApplicationController
 	end
 
 	def mailbox
+	end
+
+	def calendar
 	end
 
 end

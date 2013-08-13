@@ -1,7 +1,7 @@
 %h1 This is the profile for an expert
-%h2= @expert
+%h2= @user
 
-.expert-information
-
-.book-appointment
-  = link_to "Book Appointment", new_expert_appointment_url(@expert.username)
+- if @user.expert?
+  = render "expert-profile"
+- else
+  = render "user-profile"

@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20130813002837) do
     t.datetime "start_time"
     t.string   "state"
     t.text     "description"
+    t.integer  "number_of_credits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "appointment_requests", ["state"], name: "index_appointment_requests_on_state", using: :btree
+  add_index "appointments", ["state"], name: "index_appointments_on_state", using: :btree
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"

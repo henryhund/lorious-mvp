@@ -27,6 +27,7 @@ Lorious::Application.routes.draw do
   scope ':username' do
     get "appointments/new" => "appointments#new_with_expert", as: :new_expert_appointment
   end
+  resources :appointment_reviews, only: [:create]
 
   # MESSAGE MANAGEMENT
   resources :messages, only: [:new, :create]

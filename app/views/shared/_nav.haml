@@ -47,11 +47,14 @@
             = link_to "Sign in", GOOGLE_OAUTH_PATH
       %ul.nav.navbar-nav
         -if current_user
-          %li
+          %li.visible-lg
             =link_to "Search for Experts", "#"
-          %li
+          %li.visible-lg
             =link_to "Recent Requests", "#"
-
+          %li.hidden-lg
+            =link_to "Search", "#"
+          %li.hidden-lg
+            =link_to "Requests", "#"
         -else
           %li.active
             %a{:href => "#home"} Home

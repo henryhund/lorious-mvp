@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130812183926) do
+ActiveRecord::Schema.define(version: 20130813002837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointment_requests", force: true do |t|
+  create_table "appointment_reviews", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.text     "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "appointments", force: true do |t|
     t.integer  "requester_id"
     t.integer  "expert_id"
     t.integer  "length"
@@ -64,6 +73,17 @@ ActiveRecord::Schema.define(version: 20130812183926) do
     t.integer  "dollar_amount"
     t.string   "stripe_id"
     t.integer  "stripe_fee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.integer  "conversation_id"
+    t.text     "body"
+    t.boolean  "viewed",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

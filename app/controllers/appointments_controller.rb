@@ -7,6 +7,10 @@ class AppointmentsController < ApplicationController
     @expert = Expert.find_by_username(params[:username])
   end
 
+  def index
+    @appointments = Appointment.all
+  end
+
   def create
     appointment              = Appointment.new
     appointment.expert_id    = params[:expert_id]

@@ -2,6 +2,8 @@ class Appointment < ActiveRecord::Base
 # ASSOCIATIONS
   belongs_to :requester, class_name: "User"
   belongs_to :expert, class_name: "Expert"
+  has_many :messages
+  has_many :appointment_reviews
 
 # VALIDATIONS
 
@@ -32,6 +34,9 @@ class Appointment < ActiveRecord::Base
 # CLASS METHODS
 
 # INSTANCE METHODS
+  def reviewed_by_user?(user)
+    self.appointment_reviews.map(&:user_id).include?(user.id) ? true : false
+  end
 
 # PRIVATE METHODS
 private

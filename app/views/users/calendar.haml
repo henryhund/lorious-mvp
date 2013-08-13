@@ -1,0 +1,6 @@
+.appointment-information
+  %h1 Pending Appointment Requests
+  %ul
+    - current_user.appointments.each do |appointment|
+      %li
+        = link_to appointment, appointment_url(appointment)

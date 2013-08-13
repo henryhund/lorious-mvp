@@ -4,6 +4,13 @@
 %p= @appointment.description
 
 .conversation
-  - @appointment.messages.each do |message|
+  - @appointment.messages.ordered.each do |message|
     .message
       %p= message
+
+.add-message
+  %p Add a message
+  = form_tag messages_url do
+    = hidden_field_tag :appointment_id, @appointment.id
+    = text_area_tag :body
+    = submit_tag "Submit"

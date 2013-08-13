@@ -12,7 +12,7 @@ class Message < ActiveRecord::Base
 
 # SCOPES
   scope :in_reply_to, ->(message) { where(conversation: message) }
-  scope :ordered, -> { order("created_at") }
+  scope :ordered, -> { order("created_at DESC") }
   scope :unread_by_user, ->(user) { where(to_user: user, viewed: false) }
 
 # DELEGATIONS

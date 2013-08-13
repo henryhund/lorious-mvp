@@ -28,6 +28,9 @@ Lorious::Application.routes.draw do
     get "appointments/new" => "appointments#new_with_expert", as: :new_expert_appointment
   end
 
+  # MESSAGE MANAGEMENT
+  resources :messages, only: [:new, :create]
+
   # EXPERT PROFILE
   get "/:username" => "users#profile", as: :user_profile
 

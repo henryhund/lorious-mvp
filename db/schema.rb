@@ -16,19 +16,18 @@ ActiveRecord::Schema.define(version: 20130812183926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", force: true do |t|
+  create_table "appointment_requests", force: true do |t|
     t.integer  "requester_id"
     t.integer  "expert_id"
     t.integer  "length"
     t.datetime "start_time"
     t.string   "state"
     t.text     "description"
-    t.integer  "number_of_credits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "appointments", ["state"], name: "index_appointments_on_state", using: :btree
+  add_index "appointment_requests", ["state"], name: "index_appointment_requests_on_state", using: :btree
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"

@@ -3,6 +3,9 @@ class MessagesController < ApplicationController
   def new
   end
 
+  def new_with_expert
+  end
+
   def create
     appointment = params[:appointment_id]
     message = Message.new appointment_id: appointment, from_user: current_user, body: params[:body]

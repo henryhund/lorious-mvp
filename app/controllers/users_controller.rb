@@ -7,6 +7,20 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:username])
 	end
 
+	def edit
+	end
+
+	def update
+		params_to_use = current_user.expert? ? expert_params : user_params
+		if current_user.update_attributes(params_to_use)
+			flash[:notice] = t('user.update.success')
+			redirect_to account_url
+		else
+			flash[:notice] = t('user.update.failure')
+			redirect_to edit_user_url(current_user)
+		end
+	end
+
 	def new_card
 	end
 
@@ -32,14 +46,22 @@ class UsersController < ApplicationController
 	end
 
 	def credits
-		@credit_transactions = current_user.credit_purchases | current_user.credit_payouts
-		@credit_transactions.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
+		@credit_transactions = (current_user.credit_purchases | current_user.credit_payouts).sort! { |a, b| a.created_at <=> b.created_at }.reverse!
 	end
 
 	def mailbox
 	end
 
 	def calendar
+	end
+
+private
+	def user_params
+		params.require(:user).permit(:username, :firstname, :lastname, :display_name, :website)
+	end
+
+	def expert_params
+		params.require(:user).permit(:username, :firstname, :lastname, :display_name, :website, :bio, :hourly_rate, :tagline)
 	end
 
 end

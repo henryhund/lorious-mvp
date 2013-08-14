@@ -19,6 +19,7 @@ config/database.yml
 .sass-cache
 TODO
 notes.md
+.DS_Store
 
 # Ignore application configuration
 /config/application.yml

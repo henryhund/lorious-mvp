@@ -1,0 +1,38 @@
+.avatar
+  %img{src: @user.avatar_url, width: '75px'}
+
+.name
+  %h1= @user
+
+.website
+  %p= @user.website
+
+.bio
+  %p= @user.bio
+
+.send-message
+  = link_to "Message", new_expert_message_url(@user)
+
+.book-appointment
+  = link_to "Request Appt.", new_expert_appointment_url(@user.username)
+
+.social-media-profiles
+  // SOCIAL MEDIA PROFILES
+
+.rating
+  // EXPERT RATING
+
+.conversations
+  %p= "Number of conversations: #{@user.number_of_conversations}"
+
+.hourly-rate
+  %p= number_to_currency(@user.hourly_rate)
+
+.expert-with
+  // TAGS
+
+.can-also-help-with
+  // WTF?!?!
+
+.reviews
+  // REVIEWS

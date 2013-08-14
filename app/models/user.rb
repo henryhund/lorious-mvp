@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 # DELEGATIONS
 
 # CALLBACKS
+  before_create { self.display_name = "#{self.firstname} #{self.lastname}" }
 
 # CONFIG METHODS
 	def to_s

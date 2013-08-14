@@ -46,4 +46,14 @@ describe User do
 
   end
 
+  context "callbacks - before_create" do
+
+    it "sets the display_name to the first name + last name" do
+      user = FactoryGirl.build(:user, firstname: "Nick", lastname: "Taylor")
+      user.save!
+      user.display_name.should eq "Nick Taylor"
+    end
+
+  end
+
 end

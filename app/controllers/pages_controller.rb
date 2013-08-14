@@ -11,7 +11,8 @@ class PagesController < ApplicationController
   end
 
   # Uncertain as to where to host these methods that could be used across many controllers
-  def add_to_list(fname, email, list_id=MAILCHIMP_LIST_ID)
+  def add_to_list(name, email, list_id=MAILCHIMP_LIST_ID)
+    fname = name.split[0]
     #set up Mailchimp API
     gb = Gibbon::API.new(MAILCHIMP_API_KEY)
     gb.throws_exceptions  = false

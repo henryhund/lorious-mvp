@@ -1,38 +1,5 @@
 - content_for :head do
-  /javascript for validation
-  :javascript
-    $(document).ready(function(){
-    $('#signup').validate({
-        rules: {
-            fname: "required",
-            email: "email",
-
-        },
-        messages: {
-            fname: "Your name is required",
-            email: "Your email is required",
-        },
-        errorContainer: $('#errorContainer'),
-        errorLabelContainer: $('#errorContainer ul'),
-        wrapper: 'li'
-    });
-    $('#signup2').validate({
-      rules: {
-          fname: "required",
-          email: "email",
-
-      },
-      messages: {
-          fname: "Your name is required",
-          email: "Your email is required",
-      },
-      errorContainer: $('#errorContainer'),
-      errorLabelContainer: $('#errorContainer ul'),
-      wrapper: 'li'
-    });
-      });
-
-
+  = javascript_include_tag "homepage"
 
 - content_for :content do
   #home.row
@@ -45,7 +12,7 @@
         =text_field_tag 'fname', nil, placeholder: "NAME", class: "text"
         =text_field_tag 'email', nil, placeholder: "EMAIL", class: "text"
         =submit_tag "Request an Invite", class: "submit"
-        #errorContainer
+        #errorContainer1
           %ul.list-unstyled
   #home-border
   #about.row
@@ -84,6 +51,10 @@
             %i.icon-road.icon-large
             %h3= t("landing_page.about.right.icon_3.title")
             %p.detail= t("landing_page.about.right.icon_3.subtitle")
+  #satisfaction.row
+    .container
+      .col-lg-12.col-sm-12
+        Testimonials
 
   #how-it-works.row
     .container
@@ -107,6 +78,8 @@
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/3.svg", class: "list-number"
             %h3= t("landing_page.how-it-works.step_3.title")
             %p= t("landing_page.how-it-works.step_3.subtitle")
+
+
   #satisfaction.row
     .container
       .col-lg-12.col-sm-12
@@ -127,7 +100,7 @@
     .container
       .col-lg-12.col-lg-12
         =submit_tag "Request an Invite", class: "submit"
-        #errorContainer
+        #errorContainer2
           %ul.list-unstyled
 
 / = link_to "Sign in with Google", GOOGLE_OAUTH_PATH

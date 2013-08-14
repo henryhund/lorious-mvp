@@ -10,6 +10,7 @@ class Appointment < ActiveRecord::Base
 # SPECIAL FEATURES
 
 # SCOPES
+  scope :completed, -> { where(state: "completed") }
 
 # DELEGATIONS
 

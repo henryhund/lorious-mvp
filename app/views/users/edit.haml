@@ -11,6 +11,9 @@
     = text_field_tag :lastname, current_user.lastname, name: "user[lastname]"
     = label_tag :display_name
     = text_field_tag :display_name, current_user.display_name, name: "user[display_name]"
+  %fieldset
+    = label_tag :website
+    = text_field_tag :website, current_user.website, name: "user[website]"
   - if current_user.expert?
     = render "edit_expert_fields"
   %fieldset

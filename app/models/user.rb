@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 # ASSOCIATIONS
 	has_many :authentications, dependent: :destroy
-	has_one :profile, dependent: :destroy
   has_many :credit_purchases
   has_many :credit_payouts
   has_many :appointments, foreign_key: "requester_id"

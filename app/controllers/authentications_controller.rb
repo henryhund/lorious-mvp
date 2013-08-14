@@ -27,7 +27,7 @@ private
 	end
 
 	def register_user_from_omniauth(omniauth)
-		user = User.new(email: omniauth[:info][:email], firstname: omniauth[:info][:first_name], lastname: omniauth[:info][:last_name])
+		user = User.new(email: omniauth[:info][:email], firstname: omniauth[:info][:first_name], lastname: omniauth[:info][:last_name], avatar_url: omniauth[:info][:image])
 		user.authentications.build(provider: omniauth["provider"], uid: omniauth["uid"])
 		user.save!
 		flash[:notice] = t('user.registration.success')

@@ -20,12 +20,8 @@ class User < ActiveRecord::Base
 
 # CONFIG METHODS
 	def to_s
-    self.name
+    self.display_name
 	end
-
-  def name
-    "#{self.firstname} #{self.lastname}"
-  end
 
   def to_param
     self.username
@@ -38,10 +34,17 @@ class User < ActiveRecord::Base
 # CLASS METHODS
 
 # INSTANCE METHODS
+
+  def number_of_conversations
+    Appointment.completed.where(expert_id: self.id).count
+  end
+
+## MESSAGING
   def messages
     (self.messages_sent + self.messages_received).sort! { |a,b| a.created_at <=> b.created_at }.reverse!
   end
 
+## PAYMENTS
 	def create_stripe_customer(card_token)
 		customer = create_stripe_customer_api_call(card_token)
     self.update_attributes(
@@ -102,6 +105,8 @@ class User < ActiveRecord::Base
 
 # PRIVATE METHODS
 private
+
+## PAYMENTS
   def create_stripe_customer_api_call(card_token)
     Stripe::Customer.create(card: card_token, description: self.email)
   end

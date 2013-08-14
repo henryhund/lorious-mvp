@@ -33,6 +33,9 @@ Lorious::Application.routes.draw do
 
   # MESSAGE MANAGEMENT
   resources :messages, only: [:new, :create]
+  scope ':username' do
+    get "messages/new" => "messages#new_with_expert", as: :new_expert_message
+  end
 
   # EXPERT PROFILE
   get "/:username" => "users#profile", as: :user_profile

@@ -57,11 +57,11 @@ class UsersController < ApplicationController
 
 private
 	def user_params
-		params.require(:user).permit(:username, :firstname, :lastname, :display_name)
+		params.require(:user).permit(:username, :firstname, :lastname, :display_name, :website)
 	end
 
 	def expert_params
-		params.require(:user).permit(:username, :firstname, :lastname, :display_name, :bio, :hourly_rate, :tagline)
+		params.require(:user).permit(:username, :firstname, :lastname, :display_name, :website, :bio, :hourly_rate, :tagline)
 	end
 
 end

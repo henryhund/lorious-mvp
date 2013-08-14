@@ -14,7 +14,7 @@
   = link_to "Message", new_expert_message_url(@user)
 
 .book-appointment
-  = link_to "Request Appt.", new_expert_appointment_url(@user.username)
+  = link_to "Request Appt.", new_user_appointment_url(@user.username)
 
 .social-media-profiles
   // SOCIAL MEDIA PROFILES
@@ -28,11 +28,13 @@
 .hourly-rate
   %p= number_to_currency(@user.hourly_rate)
 
-.expert-with
-  // TAGS
+.tags
+  %ul
+    - @user.tags.each do |tag|
+      %li= tag
 
 .can-also-help-with
-  // WTF?!?!
+  // EXTRA
 
 .reviews
   // REVIEWS

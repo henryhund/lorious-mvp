@@ -3,8 +3,8 @@ class AppointmentsController < ApplicationController
   def new
   end
 
-  def new_with_expert
-    @expert = Expert.find_by_username(params[:username])
+  def new_with_user
+    @user = User.find_by_username(params[:username])
   end
 
   def index
@@ -12,13 +12,22 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    appointment              = Appointment.new
-    appointment.expert_id    = params[:expert_id]
-    appointment.requester_id = current_user.id
+    requested_user = User.find(params[:requested_user_id])
+    appointment = Appointment.new
+
+    if requested_user.expert?
+      appointment.expert_id    = requested_user.id
+      appointment.requester_id = current_user.id
+      appointment.state = "user_confirmed"
+    else
+      appointment.expert_id    = current_user.id
+      appointment.requester_id = requested_user.id
+      appointment.state = "expert_confirmed"
+    end
+
     appointment.length       = params[:length]
     appointment.description  = params[:description]
     appointment.start_time   = -> { Time.now + 1.week }.call
-    appointment.state        = "pending"
 
     if appointment.save!
       flash[:notice] = t('appointment.create.success')
@@ -32,6 +41,16 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+  end
+
+  def confirm
+    @appointment = Appointment.find(params[:appointment_id])
+    if @appointment.update_attributes(state: "pending")
+      flash[:notice] = t('appointment.confirm.success')
+    else
+      flash[:notice] = t('appointment.confirm.failure')
+    end
+      redirect_to appointment_url(@appointment)
   end
 
 end

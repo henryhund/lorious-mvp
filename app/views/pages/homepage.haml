@@ -39,8 +39,8 @@
     .left-picture.col-lg-6.col-sm-6
       =image_tag("https://s3.amazonaws.com/lorious/layout/elements/landing_page/hero-laptop.png", class:"img-responsive laptop-image")
     .right-signup.col-lg-6.col-sm-6
-      .title Build Amazing Products Faster
-      .subtitle with instant advice from expert developers
+      .title= t("landing_page.home.title")
+      .subtitle= t("landing_page.home.subtitle")
       =form_tag("/waitinglist", id: "signup") do
         =text_field_tag 'fname', nil, placeholder: "NAME", class: "text"
         =text_field_tag 'email', nil, placeholder: "EMAIL", class: "text"
@@ -51,63 +51,62 @@
   #about.row
     .container
       .col-lg-6.col-sm-6.left-column
-        %h1.title For Hackers
-        %h4.subtitle Conquer your development challenges
+        %h1.title= t("landing_page.about.left.title")
+        %h4.subtitle= t("landing_page.about.left.subtitle")
         %hr
         %ul.list-unstyled
           %li
             %i.icon-rocket.icon-large
-            %h3 Blast through roadblocks
-            %p.detail Speak to someone who's solved it before
+            %h3= t("landing_page.about.left.icon_1.title")
+            %p.detail= t("landing_page.about.left.icon_1.subtitle")
           %li
             %i.icon-fast-forward.icon-large
-            %h3 Move forward with confidence
-            %p.detail Confirm your dev plan with experts
+            %h3= t("landing_page.about.left.icon_2.title")
+            %p.detail= t("landing_page.about.left.icon_2.subtitle")
           %li
             %i.icon-user-md.icon-large
-            %h3 Diagnose problems promptly
-            %p.detail Before you've wasted hours of your time
+            %h3= t("landing_page.about.left.icon_3.title")
+            %p.detail= t("landing_page.about.left.icon_3.subtitle")
       .col-lg-6.col-sm-6
-        %h1.title For Everyone Else
-        %h4.subtitle Accelerate your product development
+        %h1.title= t("landing_page.about.right.title")
+        %h4.subtitle= t("landing_page.about.right.subtitle")
         %hr
         %ul.list-unstyled
           %li
             %i.icon-key.icon-large
-            %h3 Unlock the product dev process
-            %p.detail Find people who've done it right
+            %h3= t("landing_page.about.right.icon_1.title")
+            %p.detail= t("landing_page.about.right.icon_1.subtitle")
           %li
             %i.icon-lightbulb.icon-large
-            %h3 Make smarter dev decisions
-            %p.detail Evaluate your dev needs with an expert
+            %h3= t("landing_page.about.right.icon_2.title")
+            %p.detail= t("landing_page.about.right.icon_2.subtitle")
           %li
             %i.icon-road.icon-large
-            %h3 Create a product roadmap
-            %p.detail Make timelines, mockups and wireframes
-
+            %h3= t("landing_page.about.right.icon_3.title")
+            %p.detail= t("landing_page.about.right.icon_3.subtitle")
 
   #how-it-works.row
     .container
       .col-lg-4.col-sm-4
-        %h1 How it works
-        %p Browse our list of experts, or tell us about your challenge and we'll find you the right person.
+        %h1= t("landing_page.how-it-works.title")
+        %p= t("landing_page.how-it-works.subtitle")
 
       .col-lg-8.col-sm-8
         %ul.list-unstyled
           %li
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/1.svg", class: "list-number"
-            %h3 Find the right expert at the right price.
-            %p Browse our list of experts, or tell us about your challenge, and we’ll find you the right person.
+            %h3= t("landing_page.how-it-works.step_1.title")
+            %p= t("landing_page.how-it-works.step_1.subtitle")
           %hr
           %li
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/2.svg", class: "list-number"
-            %h3 Get in touch.
-            %p Talk to someone instantly or schedule time for later.
+            %h3= t("landing_page.how-it-works.step_2.title")
+            %p= t("landing_page.how-it-works.step_2.subtitle")
           %hr
           %li
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/3.svg", class: "list-number"
-            %h3 Connect.
-            %p Use videochat or meet in person. Talk and code for as long as it takes.
+            %h3= t("landing_page.how-it-works.step_3.title")
+            %p= t("landing_page.how-it-works.step_3.subtitle")
   #satisfaction.row
     .container
       .col-lg-12.col-sm-12
@@ -116,7 +115,7 @@
   #get-started.row
     .container
       .col-lg-12.col-sm-12
-        %h1.title Talk to an expert today
+        %h1.title= t("landing_page.get-started.title")
   #get-started-form.row
     .container
       =form_tag("/waitinglist", id: "signup2") do

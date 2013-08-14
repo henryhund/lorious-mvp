@@ -1,0 +1,64 @@
+@import "components/colors"
+@import "components/fonts"
+
+#profile
+  p
+    font-family: $body-font-family
+    font-size: 14px
+  #user-overview
+    .avatar
+      margin-top: 45px
+      border: 6px solid #bbbbbb
+      width: 200px
+    .name
+      font-family: $header-font-family
+      color: $lorious-light-green
+      font-size: 39px
+      margin-top: 45px
+      letter-spacing: 2px
+      font-weight: 500
+    .location
+      font-family: $body-font-family
+      color: $lorious-dark-grey
+      font-size: 14px
+    button
+      width: 45%
+      height: 50px
+      background-color: $lorious-blue-green
+      -webkit-appearance: none
+      border: none
+      text-transform: uppercase
+      font-family: $subtitle-font-family
+      color: #fff
+      font-size: 14px
+      letter-spacing: 1px
+    button:hover
+      opacity: 0.75
+    button.message
+
+    button.appointment
+
+    ul.links
+      margin-top: 45px
+      li
+        margin-bottom: 15px
+        .disabled
+          color: #bbbbbb
+        a:hover
+          text-decoration: none
+        i
+          font-size: 20px
+
+@media (max-width: 991px) // should be 767
+  #profile
+    #user-overview
+      text-align: center
+      ul.links
+        text-align: center
+        li
+          display: inline
+          margin-right: 5%
+          margin-left: 5%
+          i
+            font-size: 30px
+

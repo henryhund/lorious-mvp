@@ -10,7 +10,12 @@ class PagesController < ApplicationController
 
   end
 
-  # Uncertain as to where to host these methods that could be used across many controllers
+  def sample_profile
+
+  end
+
+  private
+
   def add_to_list(name, email, list_id=MAILCHIMP_LIST_ID)
     fname = name.split[0]
     #set up Mailchimp API

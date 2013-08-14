@@ -1,0 +1,45 @@
+// - content_for :head do
+
+- content_for :content do
+  #profile
+    #user-overview.row
+      .container
+        .col-lg-2.col-sm-12
+          =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar")
+        .col-lg-8.col-lg-offset-1.col-sm-12
+          %h1.name Henry H.
+          %h6.location Philadelphia, PA
+          %p Personal Website
+          %hr
+          %p.tagline This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+          %br
+          %button.message
+            %i.icon-envelope
+            Message me
+          &nbsp;
+          %span.visible-sm
+            %br
+          %button.appointment
+            %i.icon-calendar
+            Make Appointment
+          &nbsp;
+        .col-lg-1.col-sm-12
+          %ul.list-unstyled.links
+            %li
+              // disabled if not added to profile
+              %i.icon-facebook.disabled
+            %li
+              =link_to "http://www.linkedin.com", target: "_blank" do
+                %i.icon-linkedin
+            %li
+              =link_to "http://www.twitter.com", target: "_blank" do
+                %i.icon-twitter
+            %li
+              =link_to "http://www.google.com", target: "_blank" do
+                %i.icon-google-plus
+            %li
+              =link_to "http://www.stackoverflow.com", target: "_blank" do
+                %i.icon-stackexchange
+            %li
+              =link_to "http://www.github.com", target: "_blank" do
+                %i.icon-github

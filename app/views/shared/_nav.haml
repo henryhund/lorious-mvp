@@ -1,4 +1,4 @@
-= javascript_include_tag "nav_scripts"
+= javascript_include_tag "nav"
 
 %nav
   #navbar.navbar.navbar-fixed-top
@@ -33,17 +33,17 @@
             =link_to(mailbox_url, style:"padding-left:0px;padding-right:0px;") do
               %span.label.label-default
                 %i.icon-envelope.icon-white
-                = "( #{Message.unread_by_user(current_user).count} )"
+                = "#{Message.unread_by_user(current_user).count}"
           %li
             =link_to(calendar_url, style:"padding-left:0px;padding-right:0px;") do
               %span.label.label-danger
                 %i.icon-calendar
-                = "( #{current_user.appointments.count} )"
+                = "#{current_user.appointments.count}"
           %li
             =link_to(credits_url, style:"padding-left:0px;padding-right:0px;") do
               %span.label.label-info
                 %i.icon-asterisk
-                = "( #{current_user.credit_balance} )"
+                = "#{current_user.credit_balance}"
 
         -else
           %li

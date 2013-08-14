@@ -2,6 +2,9 @@ Lorious::Application.routes.draw do
 
   root to: "pages#homepage"
 
+  #temp route to code out profile design
+  get "/sample-profile" => "pages#sample_profile"
+
   # USER AUTHENTICATION
   get "/auth/:provider/callback" => "authentications#create"
   get "/signout" => "sessions#destroy", as: :signout

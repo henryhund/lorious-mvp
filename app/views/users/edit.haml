@@ -1,0 +1,17 @@
+%h1 This is the edit page
+
+= form_tag user_url(current_user), method: "PATCH" do
+  %fieldset
+    = label_tag :username
+    = text_field_tag :username, current_user.username, name: "user[username]"
+  %fieldset
+    = label_tag :firstname
+    = text_field_tag :firstname, current_user.firstname, name: "user[firstname]"
+    = label_tag :lastname
+    = text_field_tag :lastname, current_user.lastname, name: "user[lastname]"
+    = label_tag :display_name
+    = text_field_tag :display_name, current_user.display_name, name: "user[display_name]"
+  - if current_user.expert?
+    = render "edit_expert_fields"
+  %fieldset
+    = submit_tag "Update Information"

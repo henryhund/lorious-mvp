@@ -15,7 +15,10 @@
             %a{"data-toggle" => "dropdown", :href => "#"}
               ="Welcome #{current_user.firstname}"
               &nbsp;
-              =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", width: "25px", class: "img-rounded")
+              - if current_user.avatar_url.present?
+                %img{src: current_user.avatar_url, width: '25px', class: "img-rounded"}
+              - else
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", width: "25px", class: "img-rounded")
               %b.caret
             %ul.dropdown-menu
               %li

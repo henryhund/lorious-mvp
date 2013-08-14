@@ -35,4 +35,6 @@ Lorious::Application.routes.draw do
   # EXPERT PROFILE
   get "/:username" => "users#profile", as: :user_profile
 
+  # WAITING LIST ROUTE
+  post "/waitinglist" => "pages#waitinglist"
 end

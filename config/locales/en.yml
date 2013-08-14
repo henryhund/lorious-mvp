@@ -33,3 +33,5 @@ en:
     on_appointment:
       create:
         success: "successfully added message to appointment"
+  waitinglist:
+    success: "Thanks for signing up! We will let you know when we're ready for you."

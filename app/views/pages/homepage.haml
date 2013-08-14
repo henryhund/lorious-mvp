@@ -1,65 +1,134 @@
+- content_for :head do
+  /javascript for validation
+  :javascript
+    $(document).ready(function(){
+    $('#signup').validate({
+        rules: {
+            fname: "required",
+            email: "email",
+
+        },
+        messages: {
+            fname: "Your name is required",
+            email: "Your email is required",
+        },
+        errorContainer: $('#errorContainer'),
+        errorLabelContainer: $('#errorContainer ul'),
+        wrapper: 'li'
+    });
+    $('#signup2').validate({
+      rules: {
+          fname: "required",
+          email: "email",
+
+      },
+      messages: {
+          fname: "Your name is required",
+          email: "Your email is required",
+      },
+      errorContainer: $('#errorContainer'),
+      errorLabelContainer: $('#errorContainer ul'),
+      wrapper: 'li'
+    });
+      });
+
+
+
 - content_for :content do
   #home.row
+    .left-picture.col-lg-6.col-sm-6
+      =image_tag("https://s3.amazonaws.com/lorious/layout/elements/landing_page/hero-laptop.png", class:"img-responsive laptop-image")
+    .right-signup.col-lg-6.col-sm-6
+      .title Build Amazing Products Faster
+      .subtitle with instant advice from expert developers
+      =form_tag("/waitinglist", id: "signup") do
+        =text_field_tag 'fname', nil, placeholder: "NAME", class: "text"
+        =text_field_tag 'email', nil, placeholder: "EMAIL", class: "text"
+        =submit_tag "Request an Invite", class: "submit"
+        #errorContainer
+          %ul.list-unstyled
+  #home-border
+  #about.row
     .container
-      .col-lg-12
-        .jumbotron
-          %h1 Jumbotron heading
-          %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          %p
-            %a.btn.btn-large.btn-success{:href => "#"} Sign up today
-  #audience.row
-    .container
-      .col-lg-12
-        %h1 Audience
+      .col-lg-6.col-sm-6.left-column
+        %h1.title For Hackers
+        %h4.subtitle Conquer your development challenges
+        %hr
+        %ul.list-unstyled
+          %li
+            %i.icon-rocket.icon-large
+            %h3 Blast through roadblocks
+            %p.detail Speak to someone who's solved it before
+          %li
+            %i.icon-fast-forward.icon-large
+            %h3 Move forward with confidence
+            %p.detail Confirm your dev plan with experts
+          %li
+            %i.icon-user-md.icon-large
+            %h3 Diagnose problems promptly
+            %p.detail Before you've wasted hours of your time
+      .col-lg-6.col-sm-6
+        %h1.title For Everyone Else
+        %h4.subtitle Accelerate your product development
+        %hr
+        %ul.list-unstyled
+          %li
+            %i.icon-key.icon-large
+            %h3 Unlock the product dev process
+            %p.detail Find people who've done it right
+          %li
+            %i.icon-lightbulb.icon-large
+            %h3 Make smarter dev decisions
+            %p.detail Evaluate your dev needs with an expert
+          %li
+            %i.icon-road.icon-large
+            %h3 Create a product roadmap
+            %p.detail Make timelines, mockups and wireframes
+
 
   #how-it-works.row
     .container
-      .col-lg-12
+      .col-lg-4.col-sm-4
         %h1 How it works
-  .row
+        %p Browse our list of experts, or tell us about your challenge and we'll find you the right person.
+
+      .col-lg-8.col-sm-8
+        %ul.list-unstyled
+          %li
+            =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/1.svg", class: "list-number"
+            %h3 Find the right expert at the right price.
+            %p Browse our list of experts, or tell us about your challenge, and we’ll find you the right person.
+          %hr
+          %li
+            =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/2.svg", class: "list-number"
+            %h3 Get in touch.
+            %p Talk to someone instantly or schedule time for later.
+          %hr
+          %li
+            =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/3.svg", class: "list-number"
+            %h3 Connect.
+            %p Use videochat or meet in person. Talk and code for as long as it takes.
+  #satisfaction.row
     .container
-      .col-lg-6
-        %h4 How it works
-        %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-        %h4 Subheading
-        %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-        %h4 Subheading
-        %p Maecenas sed diam eget risus varius blandit sit amet non magna.
-      .col-lg-6
-        %h4 Subheading
-        %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-        %h4 Subheading
-        %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-        %h4 Subheading
-        %p Maecenas sed diam eget risus varius blandit sit amet non magna.
-    %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
+      .col-lg-12.col-sm-12
+        Satisfaction Seal
+
   #get-started.row
     .container
-      .col-lg-12
-        %h1 Get started
-  .row
+      .col-lg-12.col-sm-12
+        %h1.title Talk to an expert today
+  #get-started-form.row
     .container
-      .col-lg-6
-        %h4 Get started
-        %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-        %h4 Subheading
-        %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-        %h4 Subheading
-        %p Maecenas sed diam eget risus varius blandit sit amet non magna.
-      .col-lg-6
-        %h4 Subheading
-        %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-        %h4 Subheading
-        %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-        %h4 Subheading
-        %p Maecenas sed diam eget risus varius blandit sit amet non magna.
+      =form_tag("/waitinglist", id: "signup2") do
+        .col-lg-5.col-lg-offset-1.col-sm-5.col-sm-offset-1
+          =text_field_tag 'fname', nil, placeholder: "NAME", class: "text"
+        .col-lg-5.col-sm-5
+          =text_field_tag 'email', nil, placeholder: "EMAIL", class: "text"
+  #get-started-form.row
+    .container
+      .col-lg-12.col-lg-12
+        =submit_tag "Request an Invite", class: "submit"
+        #errorContainer
+          %ul.list-unstyled
 
 / = link_to "Sign in with Google", GOOGLE_OAUTH_PATH

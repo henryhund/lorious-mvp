@@ -13,9 +13,9 @@
   -else
     %body
   .wrapper
-    = render "shared/notifications"
     // div required to push footer down?
     %div
+      = render "shared/notifications"
       .main{id: "#{controller.controller_name}-#{controller.action_name}"}
         = render "shared/nav"
         = content_for?(:content) ? yield(:content) : yield

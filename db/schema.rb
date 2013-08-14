@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813002837) do
+ActiveRecord::Schema.define(version: 20130814012807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 20130813002837) do
     t.string   "tagline"
     t.text     "bio"
     t.integer  "hourly_rate"
+    t.string   "avatar_url"
+    t.string   "website"
   end
 
   add_index "users", ["type"], name: "index_users_on_type", using: :btree

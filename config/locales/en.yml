@@ -1,5 +1,8 @@
 en:
   user:
+    update:
+      success: "successfully updated information"
+      failure: "failed to update information"
     signin:
       success: "successfully signed in"
       failure: "there was an error signing in with the email address %{email_address}"

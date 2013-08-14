@@ -6,7 +6,14 @@ Lorious::Application.routes.draw do
   get "/auth/:provider/callback" => "authentications#create"
   get "/signout" => "sessions#destroy", as: :signout
 
-  # USER PAYMENTS
+  # USER MANAGMENET
+  resources :users, only: [:edit, :update]
+
+  # USER PAGES
+  get "/account" => "users#show", as: :account
+  get "/credits" => "users#credits", as: :credits
+  get "/mailbox" => "users#mailbox", as: :mailbox
+  get "/calendar" => "users#calendar", as: :calendar
   get "/new-card" => "users#new_card", as: :new_card
   post "/create-card" => "users#create_card", as: :create_card
   get "/new-bank-account" => "users#new_bank_account", as: :new_bank_account
@@ -16,11 +23,6 @@ Lorious::Application.routes.draw do
   resources :credit_purchases, only: [:new, :create]
   resources :credit_payouts, only: [:new, :create]
 
-  # USER ACCOUNT
-  get "/account" => "users#show", as: :account
-  get "/credits" => "users#credits", as: :credits
-  get "/mailbox" => "users#mailbox", as: :mailbox
-  get "/calendar" => "users#calendar", as: :calendar
 
   # APPOINTMENT MANAGEMENT
   resources :appointments, only: [:new, :create, :show, :index]

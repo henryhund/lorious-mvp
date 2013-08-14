@@ -1,0 +1,9 @@
+%fieldset
+  = label_tag :tagline
+  = text_field_tag :tagline, current_user.tagline, name: "user[tagline]"
+%fieldset
+  = label_tag :bio
+  = text_area_tag :bio, current_user.bio, name: "user[bio]"
+%fieldset
+  = label_tag :hourly_rate
+  = number_field_tag :hourly_rate, current_user.hourly_rate, name: "user[hourly_rate]"

@@ -7,3 +7,16 @@
 %fieldset
   = label_tag :hourly_rate
   = number_field_tag :hourly_rate, current_user.hourly_rate, name: "user[hourly_rate]"
+
+%hr
+%fieldset
+  = label_tag :tags
+  = select_tag :tags, options_for_select( Tag.all.map(&:name), current_user.tags ), include_blank: true, class: "chosen-select", multiple: true
+
+:coffeescript
+  $ ->
+    $(".chosen-select").chosen()
+
+:sass
+  .chosen-container
+    width: 200px !important

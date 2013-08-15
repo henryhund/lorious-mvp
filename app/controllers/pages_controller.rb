@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
 	def homepage
+    @action = "homepage"
 	end
 
   def waitinglist

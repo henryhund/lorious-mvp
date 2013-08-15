@@ -25,7 +25,8 @@
         .col-lg-8.col-lg-offset-1.col-sm-12
           %h1.name Henry H.
           %h6.location Philadelphia, PA
-          %p= link_to "Personal Website", "#"
+          // Maybe a modal or something?
+          %a{"data-toggle" => "modal", :href => "#calendarModal"} See My Calendar
           %hr
           %p.tagline This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
           %br
@@ -59,6 +60,9 @@
             %li
               =link_to "http://www.github.com", target: "_blank" do
                 %i.icon-github
+            %li
+              =link_to "http://www.henryhund.com", target: "_blank" do
+                %i.icon-link
     #user-detail.row
       .container
         .col-lg-4.left
@@ -182,4 +186,16 @@
                 =link_to "#" do
                   %span.highlighted HTML
 
+    #calendarModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "calendarModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            / %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+            %h4.modal-title Henry's Calendar
+          .modal-body
+            =render "calendar"
+          .modal-footer
+            %p Press ESC to Exit
+            / %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+            / %button.btn.btn-primary{:type => "button"} Save changes
 

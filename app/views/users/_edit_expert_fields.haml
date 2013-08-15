@@ -13,6 +13,12 @@
   = label_tag :tags
   = select_tag :tags, options_for_select( Tag.all.map(&:name), current_user.tags ), include_blank: true, class: "chosen-select", multiple: true
 
+%hr
+%fieldset
+  = label_tag :special_skills
+
+%hr
+
 :coffeescript
   $ ->
     $(".chosen-select").chosen()

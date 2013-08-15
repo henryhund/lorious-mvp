@@ -34,7 +34,9 @@
       %li= tag
 
 .can-also-help-with
-  // EXTRA
+  %ul
+    - @user.special_skills.each do |special_skill|
+      %li= special_skill
 
 .reviews
   // REVIEWS

@@ -15,6 +15,10 @@ class PagesController < ApplicationController
 
   end
 
+  def sample_search
+
+  end
+
   private
 
   def add_to_list(name, email, list_id=MAILCHIMP_LIST_ID)

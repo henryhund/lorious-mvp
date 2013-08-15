@@ -2,8 +2,9 @@ Lorious::Application.routes.draw do
 
   root to: "pages#homepage"
 
-  #temp route to code out profile design
+  #temp route to code out profile design, search page
   get "/sample-profile" => "pages#sample_profile"
+  get "/sample-search" => "pages#sample_search"
 
   # USER AUTHENTICATION
   get "/auth/:provider/callback" => "authentications#create"

@@ -43,7 +43,10 @@
     margin-bottom: 40px
     .avatar
       margin-top: 45px
-      border: 6px solid $light-grey
+      border: none !important
+      -moz-box-shadow: 0px 0px 0px 6px $light-grey /* Firefox */
+      -webkit-box-shadow: 0px 0px 0px 6px $light-grey /* Safari, Chrome */
+      box-shadow: 0px 0px 0px 6px $light-grey /* CSS3 */
       width: 200px
     .name
       margin-top: 45px
@@ -157,6 +160,19 @@
       -moz-column-count: 30px
       height: auto
       overflow: hidden
+      font-family: $body-font-family
+
+  #bio
+    background-color: $lorious-dark-grey
+    opacity: .75
+    color: white
+    padding-top: 30px
+    padding-bottom: 30px
+    .title
+      text-align: center
+
+    .body-container
+      font-family: $body-font-family
 
   #reviews
     border-top: 1px solid $light-grey
@@ -170,7 +186,11 @@
 
     .review-image
       width: 70px
-      border: 2px solid $light-grey
+      border: none !important
+      -moz-box-shadow: 0px 0px 0px 2px $light-grey /* Firefox */
+      -webkit-box-shadow: 0px 0px 0px 2px $light-grey /* Safari, Chrome */
+      box-shadow: 0px 0px 0px 2px $light-grey /* CSS3 */
+
 
     .review-picture-div
       width: 150px

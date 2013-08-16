@@ -2,6 +2,10 @@ Lorious::Application.routes.draw do
 
   root to: "pages#homepage"
 
+  #temp route to code out profile design, search page
+  get "/sample-profile" => "pages#sample_profile"
+  get "/sample-search" => "pages#sample_search"
+
   # USER AUTHENTICATION
   get "/auth/:provider/callback" => "authentications#create"
   get "/signout" => "sessions#destroy", as: :signout
@@ -44,4 +48,6 @@ Lorious::Application.routes.draw do
   get "/search" => "search#new", as: :new_search
   get "/:username" => "users#profile", as: :user_profile
 
+  # WAITING LIST ROUTE
+  post "/waitinglist" => "pages#waitinglist"
 end

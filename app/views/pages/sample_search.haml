@@ -1,0 +1,62 @@
+- content_for :head do
+  :javascript
+    $(function() {
+      $('#star5').raty({ readOnly: true, score: 5 });
+    });
+    $(function() {
+      $('#star4').raty({ readOnly: true, score: 4 });
+    });
+    $(function() {
+      $('#star3').raty({ readOnly: true, score: 3 });
+    });
+    $(function() {
+      $('#star2').raty({ readOnly: true, score: 2 });
+    });
+    $(function() {
+      $('#star1').raty({ readOnly: true, score: 1 });
+    });
+
+- content_for :content do
+  #search
+    .row
+      .col-sm-4
+        #search-bar.row
+          .col-sm-12
+            .marketplace-filters
+              Search
+              %input.search-query{:placeholder => "Search", :type => "text", :style => "width:100%;"}
+              %hr
+              .checkbox
+                %label
+                  %input{:type => "checkbox"}/
+                  Only Show Currently Online
+              %hr
+              Tag
+              %input.search-query{:placeholder => "Tag (Tokenized Fields)", :type => "text", :style => "width:100%;"}
+              %hr
+              Location
+              Within
+              %select
+                %option 1 mile
+                %option 10 miles
+                %option 25 miles
+                %option 25 miles +
+              %input.search-query{:placeholder => "Location (Select?)", :type => "text", :style => "width:100%;"}
+              %hr
+              Price / hour
+              %input.search-query{:placeholder => "Max / hour", :type => "text", :style => "width:100%;"}
+              // Ideally this would be a slider/input type range select?
+              %hr
+              Rating
+              .checkbox
+                %label
+                  %input{:type => "checkbox"}
+                    .star{id: "star5"}
+                  %input{:type => "checkbox"}
+                    .star{id: "star4"}
+                  %input{:type => "checkbox"}
+                    .star{id: "star3"}
+                  %input{:type => "checkbox"}
+                    .star{id: "star2"}
+                  %input{:type => "checkbox"}
+                    .star{id: "star1"}

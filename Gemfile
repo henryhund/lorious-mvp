@@ -21,6 +21,7 @@ ruby '2.0.0'
 	gem 'underscore-rails'
 	gem 'turbolinks'
 	gem 'jquery-turbolinks'
+	gem 'jquery-ui-rails'
 
 # ASSETS - DESIGN
 	# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

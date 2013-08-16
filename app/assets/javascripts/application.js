@@ -17,6 +17,7 @@
 //= require underscore
 //= require bootstrap
 //= require chosen.jquery
+//= require jquery.ui.slider
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.raty

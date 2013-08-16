@@ -44,10 +44,12 @@ Lorious::Application.routes.draw do
     get "messages/new" => "messages#new_with_expert", as: :new_expert_message
   end
 
-  # EXPERT PROFILE
-  get "/search" => "search#new", as: :new_search
-  get "/:username" => "users#profile", as: :user_profile
-
   # WAITING LIST ROUTE
   post "/waitinglist" => "pages#waitinglist"
+
+  # EXPERT PROFILE
+  get "/search" => "search#new", as: :new_search
+  post "/search" => "search#filter", as: :filter_search
+  get "/:username" => "users#profile", as: :user_profile
+
 end

@@ -1,0 +1,61 @@
+= form_tag filter_search_url do
+  Search
+  %br
+  %input.search-query{:placeholder => "Search", :type => "text", :style => "width:60%;"}
+  %hr
+  .checkbox
+    %label
+      %input{:type => "checkbox"}/
+      Only Show Currently Online
+  %hr
+  Tag
+  %br
+  %input.search-query{:placeholder => "Tag (Tokenized Fields)", :type => "text", :style => "width:60%;"}
+  %hr
+  Location
+  Within
+  %select
+    %option 1 mile
+    %option 10 miles
+    %option 25 miles
+    %option 25 miles +
+  %input.search-query{:placeholder => "Location (Select?)", :type => "text", :style => "width:60%;"}
+  %hr
+  Price / hour
+  %br
+  = text_field_tag :price_per_hour, "$0 - $100", placeholder: "Max / hour", class: "price-per-hour"
+  .range-slider
+  %hr
+  Rating
+  %br
+  %input#five{:type => "checkbox"}
+    %label.star{id: "star5", for: "five"}
+  %br
+  %input#four{:type => "checkbox"}
+    %label.star{id: "star4", for: "four"}
+  %br
+  %input#three{:type => "checkbox"}
+    %label.star{id: "star3", for: "three"}
+  %br
+  %input#two{:type => "checkbox"}
+    %label.star{id: "star2", for: "two"}
+  %br
+  %input#one{:type => "checkbox"}
+    %label.star{id: "star1", for: "one"}
+  %br
+  = submit_tag "Submit"
+
+:javascript
+  $(function() {
+    $(".range-slider").slider({
+      range: true,
+      min: 0,
+      max: 200,
+      values: [ 0, 100 ],
+      slide: function( event, ui ) {
+        $(".price-per-hour").val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $(".price-per-hour").val( "$" + $(".range-slider").slider(".range-slider", 0 ) +
+      " - $" + $(".range-slider").slider( "values", 1 ) );
+  });

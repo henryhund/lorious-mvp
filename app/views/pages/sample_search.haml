@@ -1,6 +1,15 @@
 - content_for :head do
   :javascript
     $(function() {
+      $('#star-average').raty({ readOnly: true, score: 4.5 });
+    });
+    $(function() {
+      $('#star-average1').raty({ readOnly: true, score: 3 });
+    });
+    $(function() {
+      $('#star-average2').raty({ readOnly: true, score: 5 });
+    });
+    $(function() {
       $('#star5').raty({ readOnly: true, score: 5 });
     });
     $(function() {
@@ -18,13 +27,17 @@
 
 - content_for :content do
   #search
+    .row.visible-xs
+      .col-xs-12
+        Search bar
     .row
-      .col-sm-4
+      .col-sm-3.hidden-xs
         #search-bar.row
           .col-sm-12
             .marketplace-filters
               Search
-              %input.search-query{:placeholder => "Search", :type => "text", :style => "width:100%;"}
+              %br
+              %input.search-query{:placeholder => "Search", :type => "text", :style => "width:60%;"}
               %hr
               .checkbox
                 %label
@@ -32,7 +45,8 @@
                   Only Show Currently Online
               %hr
               Tag
-              %input.search-query{:placeholder => "Tag (Tokenized Fields)", :type => "text", :style => "width:100%;"}
+              %br
+              %input.search-query{:placeholder => "Tag (Tokenized Fields)", :type => "text", :style => "width:60%;"}
               %hr
               Location
               Within
@@ -41,22 +55,159 @@
                 %option 10 miles
                 %option 25 miles
                 %option 25 miles +
-              %input.search-query{:placeholder => "Location (Select?)", :type => "text", :style => "width:100%;"}
+              %input.search-query{:placeholder => "Location (Select?)", :type => "text", :style => "width:60%;"}
               %hr
               Price / hour
-              %input.search-query{:placeholder => "Max / hour", :type => "text", :style => "width:100%;"}
+              %br
+              %input.search-query{:placeholder => "Max / hour", :type => "text", :style => "width:60%;"}
               // Ideally this would be a slider/input type range select?
               %hr
               Rating
-              .checkbox
-                %label
-                  %input{:type => "checkbox"}
-                    .star{id: "star5"}
-                  %input{:type => "checkbox"}
-                    .star{id: "star4"}
-                  %input{:type => "checkbox"}
-                    .star{id: "star3"}
-                  %input{:type => "checkbox"}
-                    .star{id: "star2"}
-                  %input{:type => "checkbox"}
-                    .star{id: "star1"}
+              %br
+              %input#five{:type => "checkbox"}
+                %label.star{id: "star5", for: "five"}
+              %br
+              %input#four{:type => "checkbox"}
+                %label.star{id: "star4", for: "four"}
+              %br
+              %input#three{:type => "checkbox"}
+                %label.star{id: "star3", for: "three"}
+              %br
+              %input#two{:type => "checkbox"}
+                %label.star{id: "star2", for: "two"}
+              %br
+              %input#one{:type => "checkbox"}
+                %label.star{id: "star1", for: "one"}
+      #search-results.col-sm-9
+        %ul.list-unstyled
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $20 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average1", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted HTML
+                // abbreviated list of topics. perhaps just the first 5-8 listed
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $20 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average2", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted HTML
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $20 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average2", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted HTML
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $20 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average2", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted HTML
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $20 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average2", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p This is the tagline. It can describe who you are, what you know, what you do. I think it should be about 3 sentences.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted HTML

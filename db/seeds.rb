@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+10.times do |i|
+  expert = Expert.create!({
+    hourly_rate: (i+1) * 10,
+    email: "rg#{i}@gmail.com",
+    username: "rg#{i}",
+    credit_balance: 100,
+    firstname: "Robert",
+    lastname: "Griffin",
+    display_name: "Robert Griffin #{i}",
+    tagline: "This is the tagline for the expert. This needs to be longer than a sentence or the CSS is breaking",
+    bio: "This is the bio of an expert, it's like really long and stuff",
+    avatar_url: "http://cdn.solecollector.com/media/sneakers/images/robert-griffin-iii-rg3-covers-nike-logo-01.jpg"
+  })
+  puts "Created Expert: #{expert.display_name}"
+end

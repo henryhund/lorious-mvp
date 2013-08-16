@@ -1,7 +1,7 @@
 %h1 This is a new appointment request for an expert
 
 = form_tag appointments_url do
-  = hidden_field_tag :expert_id, @expert.id
+  = hidden_field_tag :requested_user_id, @user.id
   %fieldset
     = label_tag :length, "Length"
     = select_tag :length, options_for_select([["15", "15"], ["30", "30"], ["45", "45"], ["1:00", "60"], ["1:15", "75"], ["1:30", "90"], ["1:45", "105"], ["2:00", "120"]])

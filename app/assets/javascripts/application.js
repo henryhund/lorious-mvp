@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require underscore
 //= require bootstrap
+//= require chosen.jquery

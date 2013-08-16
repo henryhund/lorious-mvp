@@ -26,6 +26,12 @@ describe Appointment do
       expect { appointment.save! }.to raise_error(AppointmentError)
     end
 
+    it "does not allow a user to create an appointment with himself" do
+      expert = FactoryGirl.create(:expert, credit_balance: 100)
+      appointment = FactoryGirl.build(:appointment, requester: expert, expert: expert, length: 60)
+      expect { appointment.save! }.to raise_error(AppointmentError)
+    end
+
   end
 
 end

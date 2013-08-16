@@ -6,8 +6,17 @@ class Appointment < ActiveRecord::Base
   has_many :appointment_reviews
 
 # VALIDATIONS
+  before_create do
+    raise AppointmentError.new(:create, "cannot create appointment with yourself") if self.expert_id == self.requester_id
+  end
 
 # SPECIAL FEATURES
+
+## STATE MACHINE
+  # user_confirmed, expert_confirmed, unpaid, pending, in_progress, completed, cancelled
+  before_create do
+    self.state = "user_confirmed" if !self.state
+  end
 
 # SCOPES
   scope :completed, -> { where(state: "completed") }
@@ -16,6 +25,7 @@ class Appointment < ActiveRecord::Base
 
 # CALLBACKS
   before_validation(on: :create) do
+
     if self.requester.credit_balance < calculate_credits_to_charge
       raise AppointmentError.new(:create, "requester does not have enough credits")
     else
@@ -23,13 +33,9 @@ class Appointment < ActiveRecord::Base
     end
   end
 
-  before_create do
-    self.state = "user_confirmed"
-  end
-
 # CONFIG METHODS
   def to_s
-    "#{self.length} minutes with #{self.expert} - #{self.start_time}"
+    "#{self.display_state} || #{self.length} minutes with #{self.expert} - #{self.start_time}"
   end
 
 # CLASS METHODS
@@ -37,6 +43,18 @@ class Appointment < ActiveRecord::Base
 # INSTANCE METHODS
   def reviewed_by_user?(user)
     self.appointment_reviews.map(&:user_id).include?(user.id) ? true : false
+  end
+
+  def completed?
+    return true if self.state == "completed"
+  end
+
+  def display_state
+    case self.state
+    when "user_confirmed" then "waiting for confirmation from the expert"
+    when "expert_confirmed" then "waiting for confirmation from the user"
+    when "pending" then "CONFIRMED"
+    end
   end
 
 # PRIVATE METHODS

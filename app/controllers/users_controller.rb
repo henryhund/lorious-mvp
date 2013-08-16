@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	def update
 		params_to_use = current_user.expert? ? expert_params : user_params
 		if current_user.update_attributes(params_to_use)
+			current_user.update_tags(params[:tags]) if current_user.expert?
 			flash[:notice] = t('user.update.success')
 			redirect_to account_url
 		else

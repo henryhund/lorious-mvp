@@ -23,12 +23,15 @@ Lorious::Application.routes.draw do
   resources :credit_purchases, only: [:new, :create]
   resources :credit_payouts, only: [:new, :create]
 
-
   # APPOINTMENT MANAGEMENT
-  resources :appointments, only: [:new, :create, :show, :index]
-  scope ':username' do
-    get "appointments/new" => "appointments#new_with_expert", as: :new_expert_appointment
+  resources :appointments, only: [:new, :create, :show, :index] do
+    get "/confirm" => "appointments#confirm", as: :confirmation
   end
+
+  scope ':username' do
+    get "appointments/new" => "appointments#new_with_user", as: :new_user_appointment
+  end
+
   resources :appointment_reviews, only: [:create]
 
   # MESSAGE MANAGEMENT
@@ -38,6 +41,7 @@ Lorious::Application.routes.draw do
   end
 
   # EXPERT PROFILE
+  get "/search" => "search#new", as: :new_search
   get "/:username" => "users#profile", as: :user_profile
 
 end

@@ -1,0 +1,9 @@
+%h1 This is the Expert Search page
+
+.expert-list
+- @experts.each do |expert|
+  .expert
+    = link_to expert, user_profile_url(expert)
+
+.tag-search
+  = select_tag

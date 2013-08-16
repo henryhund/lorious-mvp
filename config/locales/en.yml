@@ -28,6 +28,9 @@ en:
     create:
       success: "successfully created appointment"
       failure: "there was an error creating your appointment"
+    confirm:
+      success: "succesffully confirmed appointment"
+      failure: "there was an error confirming your appointment"
     review:
       create:
         success: "successfully added appointment review"

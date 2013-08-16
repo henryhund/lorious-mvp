@@ -3,11 +3,15 @@
 .appointment-request-information
 %p= @appointment.description
 
+%hr
+%p= @appointment.display_state
+
 .conversation
   - @appointment.messages.ordered.each do |message|
     .message
       %p= message
 
+%hr
 .add-message
   %p Add a message
   = form_tag messages_url do
@@ -15,13 +19,20 @@
     = text_area_tag :body
     = submit_tag "Submit"
 
-- if @appointment.reviewed_by_user?(current_user)
-  .review
-    %p You have already reviewed this appointment.
-- else
-  .add-review
-    %p Review your appointment
-    = form_tag appointment_reviews_url do
-      = hidden_field_tag :appointment_id, @appointment.id
-      = text_area_tag :summary
-      = submit_tag "Submit"
+- if @appointment.completed? && (current_user == @appointment.requester)
+  - if @appointment.reviewed_by_user?(current_user)
+    .review
+      %p You have already reviewed this appointment.
+  - else
+    .add-review
+      %p Review your appointment
+      = form_tag appointment_reviews_url do
+        = hidden_field_tag :appointment_id, @appointment.id
+        = text_area_tag :summary
+        = submit_tag "Submit"
+
+%hr
+- if (current_user == @appointment.expert) && @appointment.state == "user_confirmed"
+  = link_to "Confirm Appointment", appointment_confirmation_url(@appointment)
+- elsif (current_user == @appointment.requester) && @appointment.state == "expert_confirmed"
+  = link_to "Confirm Appointment", appointment_confirmation_url(@appointment)

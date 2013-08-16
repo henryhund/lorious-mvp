@@ -39,6 +39,11 @@ class User < ActiveRecord::Base
     Appointment.completed.where(expert_id: self.id).count
   end
 
+  def update_tags(tags)
+    delete_old_tags(tags)
+    add_new_tags(tags)
+  end
+
 ## MESSAGING
   def messages
     (self.messages_sent + self.messages_received).sort! { |a,b| a.created_at <=> b.created_at }.reverse!
@@ -105,6 +110,17 @@ class User < ActiveRecord::Base
 
 # PRIVATE METHODS
 private
+
+  def delete_old_tags(tags)
+    tags_to_delete = (self.tags.map(&:name) - tags).collect { |name| Tag.find_by_name(name) }
+    taggings_to_delete = tags_to_delete.collect { |tag| self.taggings.find_by_tag_id(tag.id) }
+    taggings_to_delete.each { |tagging| tagging.destroy }
+  end
+
+  def add_new_tags(tags)
+    tags_to_add = (tags - self.tags.map(&:name)).collect { |name| Tag.find_by_name(name) }
+    tags_to_add.each { |tag| self.taggings.create! tag_id: tag.id }
+  end
 
 ## PAYMENTS
   def create_stripe_customer_api_call(card_token)

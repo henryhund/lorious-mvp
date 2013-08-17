@@ -1,3 +1,6 @@
+@import "components/colors"
+@import "components/fonts"
+
 .navbar
   background-color: #32494c
   font-size: 18px
@@ -23,12 +26,16 @@
   li.dropdown > a
     padding-bottom: 10px
 
+  .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus
+    height: 100%
+    background-color: rgba(158, 185, 189, 0.75)
+    color: #ffffff
+
   .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus, .navbar-nav > a:focus
-    background-color: #32494c
     color: #ffffff
 
   .navbar-nav > li > a:hover, .navbar-nav > li > a:focus
-    background-color: #32494c
+    background-color: $lorious-dark-grey
     color: #ffffff
 
 
@@ -68,6 +75,6 @@
 
 
 // If screen is narrow, override JS for setting navbar height (otherwise will not allow responsive dropdown)
-@media (max-width: 767px)
+@media (max-width: 767px) // should be 767
   .navbar
     height: auto !important

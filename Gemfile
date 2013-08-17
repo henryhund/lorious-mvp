@@ -21,6 +21,7 @@ ruby '2.0.0'
 	gem 'underscore-rails'
 	gem 'turbolinks'
 	gem 'jquery-turbolinks'
+	gem 'jquery-ui-rails'
 
 # ASSETS - DESIGN
 	# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
@@ -28,7 +29,11 @@ ruby '2.0.0'
  	#                              :branch => '3.0.0'
 
 	gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
-  gem 'font-awesome-sass-rails'
+  gem 'font-awesome-rails', '>=3.2.1.3'
+
+# MAILING LIST
+	gem 'gibbon'
+	gem 'jquery-validation-rails'
 
 # CONFIG VARIABLES
 	gem 'figaro'

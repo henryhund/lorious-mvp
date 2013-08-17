@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
 # CLASS METHODS
 
 # INSTANCE METHODS
-
   def number_of_conversations
     Appointment.completed.where(expert_id: self.id).count
   end

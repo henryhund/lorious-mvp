@@ -1,0 +1,26 @@
+#search-results.col-sm-9
+  %ul.list-unstyled
+    - @experts.each do |expert|
+      %li
+        .result-picture-div
+          =link_to user_profile_url(expert), class: "review-name-link" do
+            =image_tag(expert.avatar_url, class: "img-circle avatar-image")
+
+          %p= "#{number_to_currency(expert.hourly_rate, precision: 0)} / hour"
+
+        .result-detail-div
+          %p.review-name.pull-left
+            =link_to user_profile_url(expert), class: "review-name-link" do
+              = expert.display_name
+            %br
+            Freelancer | Washington, D.C.
+          .appointment-info.pull-right{style:"display:inline;"}
+            .star{id: "star-average1", style:"display:inline;"}
+            \|
+            %span= pluralize(expert.number_of_conversations, "Conversation")
+
+          %p= expert.tagline
+          %hr
+          - expert.tags.each do |tag|
+            =link_to "#" do
+              %span.highlighted= tag

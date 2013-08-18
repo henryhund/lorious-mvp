@@ -51,10 +51,10 @@
             %i.icon-road.icon-large
             %h3= t("landing_page.about.right.icon_3.title")
             %p.detail= t("landing_page.about.right.icon_3.subtitle")
-  #satisfaction.row
-    .container
-      .col-lg-12.col-sm-12
-        Testimonials
+  / #satisfaction.row
+  /   .container
+  /     .col-lg-12.col-sm-12
+  /       Testimonials
 
   #how-it-works.row
     .container
@@ -83,7 +83,11 @@
   #satisfaction.row
     .container
       .col-lg-12.col-sm-12
-        Satisfaction Seal
+        / =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/satisfactionseal.png", class: "img-circle", style: "width: 200px"
+        .onehundredpct
+          %p Your Satisfaction
+          100%
+          %p Guaranteed
 
   #get-started.row
     .container

@@ -63,19 +63,22 @@
         %p= t("landing_page.how-it-works.subtitle")
 
       .col-lg-8.col-sm-8
-        %ul.list-unstyled
-          %li
+        %dl.dl-horizontal
+          %dt
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/1.svg", class: "list-number"
+          %dd
             %h3= t("landing_page.how-it-works.step_1.title")
             %p= t("landing_page.how-it-works.step_1.subtitle")
           %hr
-          %li
+          %dt
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/2.svg", class: "list-number"
+          %dd
             %h3= t("landing_page.how-it-works.step_2.title")
             %p= t("landing_page.how-it-works.step_2.subtitle")
           %hr
-          %li
+          %dt
             =image_tag "https://s3.amazonaws.com/lorious/layout/elements/landing_page/3.svg", class: "list-number"
+          %dd
             %h3= t("landing_page.how-it-works.step_3.title")
             %p= t("landing_page.how-it-works.step_3.subtitle")
 

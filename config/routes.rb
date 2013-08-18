@@ -1,6 +1,7 @@
 Lorious::Application.routes.draw do
 
   root to: "pages#homepage"
+  get "/legal" => "pages#legal"
 
   #temp route to code out profile design, search page
   # get "/sample-profile" => "pages#sample_profile"

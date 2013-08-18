@@ -1,4 +1,4 @@
-= javascript_include_tag "nav"
+=# javascript_include_tag "nav"
 
 %nav.navbar.navbar-fixed-top#navbar{role: "navigation"}
   .navbar-header
@@ -31,8 +31,11 @@
           %a{:href => "#get-started"} Get started
         %li
       -elsif
-        %li{style: "width:300px;color: white; font-size: 10px; vertical-align: middle"}
-          You are browsing Lorious as a guest. ...
+        .navbar-text
+          %p{"data-no-turbolink"=>""}
+            Welcome guest. Please click
+            =link_to "here", root_url
+            to learn more about Lorious.
     %ul.nav.navbar-nav.pull-right
       - if current_user
         %li.dropdown

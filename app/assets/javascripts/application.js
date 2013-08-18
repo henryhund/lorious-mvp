@@ -21,3 +21,5 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.raty
+//= require homepage
+//= require nav

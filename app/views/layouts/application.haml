@@ -1,7 +1,10 @@
 !!!
 %html
   %head
-    %title Lorious
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:content => "http-equiv='X-UA-Compatible' content='chrome=1'"}
+      %title= content_for?(:title) ? yield(:title) : "Lorious | Connecting People and Startups to Experienced Developers to Transform the Product Development Process"
+      %meta{:content => content_for?(:description) ? yield(:description) : "Lorious", :name => "Lorious is an online marketplace and community for developers, hackers and non-techies alike to get technical advice. We connect people and startups who have development and tech challenges, ranging from product development to specific SQL queries, with experienced developers and technicians who can help them. Expert techies create profiles that display their credentials and an hourly rate."}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "//cloud.typography.com/7516432/790802/css/fonts.css"
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -12,6 +15,16 @@
     %body{"data-offset" => "60", "data-spy" => "scroll", "data-target" => "#navbar"}
   -else
     %body
+  // Google Tag Manager
+  %noscript
+    %iframe{:height => "0", :src => "//www.googletagmanager.com/ns.html?id=GTM-39XV", :style => "display:none;visibility:hidden", :width => "0"}
+  :javascript
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-39XV');
+  // End Google Tag Manager
   .wrapper
     // div required to push footer down?
     %div

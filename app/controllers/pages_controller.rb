@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @action = "homepage"
 	end
 
+  def legal
+    # @action = "homepage"
+  end
+
   def waitinglist
 
     add_to_list(params[:fname], params[:email])

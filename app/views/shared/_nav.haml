@@ -31,8 +31,8 @@
           %a{:href => "#get-started"} Get started
         %li
       -elsif
-        %li{style: "width:300px;color: white; font-size: 10px; vertical-align: middle"}
-          You are browsing Lorious as a guest. ...
+        .navbar-text.pull-right
+          %p Welcome guest. Please click here to learn more about Lorious.
     %ul.nav.navbar-nav.pull-right
       - if current_user
         %li.dropdown

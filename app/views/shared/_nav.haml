@@ -31,8 +31,11 @@
           %a{:href => "#get-started"} Get started
         %li
       -elsif
-        .navbar-text.pull-right
-          %p Welcome guest. Please click here to learn more about Lorious.
+        .navbar-text
+          %p{"data-no-turbolink"=>""}
+            Welcome guest. Please click
+            =link_to "here", root_url
+            to learn more about Lorious.
     %ul.nav.navbar-nav.pull-right
       - if current_user
         %li.dropdown

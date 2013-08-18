@@ -10,18 +10,18 @@
         / %li
         /   %a{:href => "#"} Blog
         %li
-          %a{:href => "questions@lorious.com"} Contact us
+          =mail_to "questions@lorious.com", "Contact us"
 
     .col-lg-2.col-sm-2
       %ul.list-unstyled{style: "padding-top:0px"}
         %li Connect
         %hr{style: "height:2px; visibility:hidden; margin: 0px 0px 0px 0px;"}
         %li
-          %a{:href => "https://www.facebook.com/pages/Lorious/357664217669583"}
+          %a{:href => "http://facebook.lorious.com", target: "_blank"}
             %i.icon-facebook
             Facebook
         %li
-          %a{:href => "https://twitter.com/intent/user?screen_name=LoriousTweets"}
+          %a{:href => "https://twitter.com/intent/user?screen_name=LoriousTweets", target: "_blank"}
             %i.icon-twitter
             Twitter
     .col-lg-7.col-sm-7.logo_legal

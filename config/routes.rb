@@ -3,6 +3,9 @@ Lorious::Application.routes.draw do
   root to: "pages#homepage"
   get "/legal" => "pages#legal"
 
+  # WAITING LIST ROUTE
+  post "/waitinglist" => "pages#waitinglist"
+
   #temp route to code out profile design, search page
   # get "/sample-profile" => "pages#sample_profile"
   # get "/sample-search" => "pages#sample_search"
@@ -45,8 +48,7 @@ Lorious::Application.routes.draw do
   #   get "messages/new" => "messages#new_with_expert", as: :new_expert_message
   # end
 
-  # WAITING LIST ROUTE
-  post "/waitinglist" => "pages#waitinglist"
+
 
   # EXPERT PROFILE
   # get "/search" => "search#new", as: :new_search

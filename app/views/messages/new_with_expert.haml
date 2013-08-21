@@ -1,1 +1,13 @@
 %h1 This is the form for a new message with EXPERT
+
+= form_tag messages_url do
+  = hidden_field_tag :to_user_username, params[:username]
+
+  %fieldset
+    = label_tag :subject
+    = text_field_tag :subject
+  %fieldset
+    = label_tag :body
+    = text_area_tag :body
+  %fieldset
+    = submit_tag "Send Message"

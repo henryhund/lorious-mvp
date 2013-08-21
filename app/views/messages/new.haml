@@ -1,1 +1,14 @@
 %h1 This is the form for a new message
+
+= form_tag messages_url do
+  %fieldset
+    = label_tag :to_user_username, "Username"
+    = text_field_tag :to_user_username
+  %fieldset
+    = label_tag :subject
+    = text_field_tag :subject
+  %fieldset
+    = label_tag :body
+    = text_area_tag :body
+  %fieldset
+    = submit_tag "Send Message"

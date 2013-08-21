@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 # VALIDATIONS
 
 # SPECIAL FEATURES
+  # mount_uploader :avatar_url, AvatarUploader
 
 # SCOPES
 

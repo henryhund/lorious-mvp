@@ -30,3 +30,5 @@
 		- Self-Referencing
 		- Conversation
 		- On Appointment
+
+	* Carrierwave initializers are there, uploader needs to be mounted

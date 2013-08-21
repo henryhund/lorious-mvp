@@ -10,11 +10,10 @@ Lorious::Application.routes.draw do
   get "/auth/:provider/callback" => "authentications#create"
   get "/signout" => "sessions#destroy", as: :signout
 
-  # USER MANAGMENET
-  resources :users, only: [:edit, :update]
-
   # USER PAGES
   get "/account" => "users#show", as: :account
+  get "/account/edit" => "users#edit", as: :edit_user
+  patch "/account" => "users#update", as: :update_user
   get "/credits" => "users#credits", as: :credits
   get "/mailbox" => "users#mailbox", as: :mailbox
   get "/calendar" => "users#calendar", as: :calendar

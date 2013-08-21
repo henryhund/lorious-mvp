@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :require_username, only: [:new, :new_with_user]
 
   def new
   end

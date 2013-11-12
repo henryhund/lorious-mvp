@@ -1,0 +1,202 @@
+- content_for :head do
+  :javascript
+    $(function() {
+      $('#star-average').raty({ readOnly: true, score: 4.5 });
+    });
+    $(function() {
+      $('#star-average1').raty({ readOnly: true, score: 4.5 });
+    });
+    $(function() {
+      $('#star-average2').raty({ readOnly: true, score: 5 });
+    });
+    $(function() {
+      $('#star-average3').raty({ readOnly: true, score: 4.5 });
+    });
+    $(function() {
+      $('#star-average4').raty({ readOnly: true, score: 4 });
+    });
+    $(function() {
+      $('#star-average5').raty({ readOnly: true, score: 5 });
+    });
+
+    $(function() {
+      $('#star5').raty({ readOnly: true, score: 5 });
+    });
+    $(function() {
+      $('#star4').raty({ readOnly: true, score: 4 });
+    });
+    $(function() {
+      $('#star3').raty({ readOnly: true, score: 3 });
+    });
+    $(function() {
+      $('#star2').raty({ readOnly: true, score: 2 });
+    });
+    $(function() {
+      $('#star1').raty({ readOnly: true, score: 1 });
+    });
+
+- content_for :content do
+  #search
+    .row.visible-xs
+      .col-xs-12
+        Search bar
+    .row
+      .col-sm-3.hidden-xs
+        #search-bar.row
+          .col-sm-12
+            .marketplace-filters
+              / Search
+              %br
+              %input.search-query{:placeholder => "Search", :type => "text", :style => "width:60%;"}
+              %hr
+              .checkbox
+                %label
+                  %input{:type => "checkbox"}/
+                  Only Show Currently Online
+              %hr
+              Tag
+              %br
+              %input.search-query{:placeholder => "Select Tags", :type => "text", :style => "width:60%;"}
+              %hr
+              Location
+              Within
+              %br
+              %select
+                %option 1 mile
+                %option 10 miles
+                %option 25 miles
+                %option 50 miles
+              %br
+              %br
+              %input.search-query{:placeholder => "Location (Select?)", :type => "text", :style => "width:60%;"}
+              %hr
+              Price / hour
+              %br
+              %input.search-query{:placeholder => "Max / hour", :type => "text", :style => "width:60%;"}
+              // Ideally this would be a slider/input type range select?
+              %hr
+              Rating
+              %br
+              %input#five{:type => "checkbox"}
+                %label.star{id: "star5", for: "five"}
+              %br
+              %input#four{:type => "checkbox"}
+                %label.star{id: "star4", for: "four"}
+              %br
+              %input#three{:type => "checkbox"}
+                %label.star{id: "star3", for: "three"}
+              %br
+              %input#two{:type => "checkbox"}
+                %label.star{id: "star2", for: "two"}
+              %br
+              %input#one{:type => "checkbox"}
+                %label.star{id: "star1", for: "one"}
+      #search-results.col-sm-9
+        %ul.list-unstyled
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://lh5.googleusercontent.com/-BmuNsVjo1_k/AAAAAAAAAAI/AAAAAAAAAQ8/NzskO-BJA9w/photo.jpg", class: "img-circle avatar-image")
+
+              %p $45 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Henry H.
+                %br
+                Lorious CEO & CTO | Philadelphia, PA
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average1", style:"display:inline;"}
+                \|
+                %span 19 Conversations
+
+              %p I am the head of product at Lorious. I spend a lot of time working with Rails, but also on higher level product development questions. I'm excited to help your startup get started.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted HAML
+              =link_to "#" do
+                %span.highlighted CSS
+              =link_to "#" do
+                %span.highlighted Javascript
+                // abbreviated list of topics. perhaps just the first 5-8 listed
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/2/000/193/245/3611be6.jpg", class: "img-circle avatar-image")
+
+              %p $50 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Al J.
+                %br
+                Every Last Morsel CTO | Chicago, IL
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average2", style:"display:inline;"}
+                \|
+                %span 5 Conversations
+
+              %p I am a student at Northwestern and the CTO of Every Last Morsel. I'm very familiar with Rails and am happy to help you in any way I can.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted Node.js
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c11.4.273.273/s160x160/549219_3887142426817_1556691889_n.jpg", class: "img-circle avatar-image")
+              %p $75 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Kenny W.
+                %br
+                Novi CTO | Taipei, Taiwan
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average3", style:"display:inline;"}
+                \|
+                %span 5 Conversations
+
+              %p I've been programming since I was 10. I know virtually every programming language. I'm working on a complicated machine learning algorithm so I'd be happy to talk about that.
+              %hr
+              =link_to "#" do
+                %span.highlighted PHP
+              =link_to "#" do
+                %span.highlighted Solr
+              =link_to "#" do
+                %span.highlighted Machine Learning
+          %li
+            .result-picture-div
+              =link_to "#", class: "review-name-link" do
+                =image_tag("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c12.12.168.168/308431_10150800888020655_125240324_n.jpg", class: "img-circle avatar-image")
+                / =image_tag("https://s3.amazonaws.com/lorious/layout/elements/placeholders/image_placeholder.jpg", class: "img-circle avatar-image")
+
+              %p $50 / hour
+
+            .result-detail-div
+              %p.review-name.pull-left
+                =link_to "#", class: "review-name-link" do
+                  Jordan L.
+                %br
+                Freelancer | Washington, D.C.
+              .appointment-info.pull-right{style:"display:inline;"}
+                .star{id: "star-average5", style:"display:inline;"}
+                \|
+                %span 20 Conversations
+
+              %p I've been consulting on large and small projects for the last 14 months and am ready to help entrepreneurs and startups make their ideas a reality.
+              %hr
+              =link_to "#" do
+                %span.highlighted Ruby on Rails
+              =link_to "#" do
+                %span.highlighted Javascript
+              =link_to "#" do
+                %span.highlighted HAML
+              =link_to "#" do
+                %span.highlighted Python
